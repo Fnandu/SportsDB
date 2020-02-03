@@ -3,12 +3,16 @@ CREATE DATABASE IF NOT EXISTS SportDB;
 
 USE SportDB;
 	
+    /*Create superclass Person and turn Staff - Fan - Sportman into subclasses of Person*/
+    /*Add origin country to Person*/
 CREATE TABLE IF NOT EXISTS Staff(
 	dni char(9) not null primary key,
     first_name varchar(20) NOT NULL,
     last_name varchar(30) NOT NULL,
     birth_date date NOT NULL,
-    discipline varchar(30)
+    discipline varchar(30),
+    team_role varchar(30),
+    gender varchar(30)
 );
 
 CREATE TABLE IF NOT EXISTS Team(
@@ -26,6 +30,7 @@ CREATE TABLE IF NOT EXISTS Sportman(
     first_name varchar(20) NOT NULL,
     last_name varchar(30) NOT NULL,
     birth_date date NOT NULL,
+    gender varchar(30),
     discipline varchar(20),
 	country varchar(20) NOT NULL,
     local_player_code int,
@@ -50,11 +55,12 @@ CREATE TABLE IF NOT EXISTS Fan_Supports_Team(
     FOREIGN KEY (DNI) REFERENCES Fan(DNI)
 );
 
-
+/*Create FAN ATTENDS GAME table*/
 
 CREATE TABLE IF NOT EXISTS Tournament(
 		id_tournament int AUTO_INCREMENT not null unique,
         tournament_name varchar(30),
+        discipline varchar(30) not null,
         PRIMARY KEY(id_tournament)
 );
 
@@ -69,7 +75,7 @@ CREATE TABLE IF NOT EXISTS Stadium(
 
 CREATE TABLE IF NOT EXISTS Game(
 	date_match date,
-    discipline int not null unique,
+    id_tournament int not null unique,
     id_local_team int,
     local_result enum('Winner','Loser','Tied','Other') not null,
     local_other_result varchar(30),
@@ -79,8 +85,10 @@ CREATE TABLE IF NOT EXISTS Game(
     stadium_name varchar(30),
     stadium_id int unsigned not null,
     FOREIGN KEY (stadium_id) REFERENCES Stadium(idStadium),
-    FOREIGN KEY (discipline) REFERENCES Tournament(id_tournament)
+    FOREIGN KEY (id_tournament) REFERENCES Tournament(id_tournament)
 );
+/*Create table Player Plays in Game where we store the score of each player and if there are incidences such as lesions or penalties*/
+
 
 /*Staff ---> dni, first_name, last_name, birth_date discipline */
 
@@ -150,13 +158,10 @@ insert into Sportman(dni,first_name,last_name,birth_date,discipline,country,loca
 
 /* Tounament ---> id_tournament,tournament_name */
 
-insert into Tournament(tournament_name) values ('National_Championship');
+insert into Tournament(tournament_name, discipline) values ('National_Championship','Basketball');
 
-insert into Tournament(tournament_name) values ('International_Championship');
+insert into Tournament(tournament_name, discipline) values ('International_Championship','Football');
 
-insert into Tournament(tournament_name) values ('Eurocup');
+insert into Tournament(tournament_name, discipline) values ('Eurocup','Football');
 
-insert into Tournament(tournament_name) values ('Worldcup');
-
-
-
+insert into Tournament(tournament_name, discipline) values ('Worldcup','Football');
