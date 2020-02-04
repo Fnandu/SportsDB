@@ -119,9 +119,10 @@ CREATE TABLE IF NOT EXISTS Fan_Attends_Game (
 );
 
 
+/*Create table Player_plays_in_Game where we store the score of each player and if there are incidences such as lesions or penalties*/
 
-/*Create table Player Plays in Game where we store the score of each player and if there are incidences such as lesions or penalties*/
 
+/*Create Inserts for all the new elements, such as games, fans and tournaments*/
 
 /*Staff ---> dni, first_name, last_name, birth_date discipline */
 
