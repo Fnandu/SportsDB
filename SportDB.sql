@@ -4,89 +4,122 @@ CREATE DATABASE IF NOT EXISTS SportDB;
 USE SportDB;
 	
     /*Create superclass Person and turn Staff - Fan - Sportman into subclasses of Person*/
-    /*Add origin country to Person*/
-CREATE TABLE IF NOT EXISTS Staff(
-	dni char(9) not null primary key,
-    first_name varchar(20) NOT NULL,
-    last_name varchar(30) NOT NULL,
-    birth_date date NOT NULL,
-    discipline varchar(30),
-    team_role varchar(30),
-    gender varchar(30)
+CREATE TABLE IF NOT EXISTS Staff (
+    dni CHAR(9) NOT NULL PRIMARY KEY,
+    first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    birth_date DATE NOT NULL,
+    discipline VARCHAR(30),
+    team_role VARCHAR(30),
+    gender VARCHAR(30)
 );
 
-CREATE TABLE IF NOT EXISTS Team(
-	team_code int unsigned unique not null AUTO_INCREMENT,
-    Team_name varchar(20) NOT NULL,
-    discipline varchar(30) NOT NULL,
-    number_players int NOT NULL,
-    trainer_DNI char(9),
+CREATE TABLE IF NOT EXISTS Team (
+    team_code INT UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT,
+    Team_name VARCHAR(20) NOT NULL,
+    discipline VARCHAR(30) NOT NULL,
+    number_players INT NOT NULL,
+    trainer_DNI CHAR(9),
     PRIMARY KEY (team_code),
-    FOREIGN KEY (trainer_DNI) REFERENCES Staff(dni)
+    FOREIGN KEY (trainer_DNI)
+        REFERENCES Staff (dni)
 );
 
-CREATE TABLE IF NOT EXISTS Sportman(
-	dni char(9),
-    first_name varchar(20) NOT NULL,
-    last_name varchar(30) NOT NULL,
-    birth_date date NOT NULL,
-    gender varchar(30),
-    discipline varchar(20),
-	country varchar(20) NOT NULL,
-    local_player_code int,
-    score int,
-    team_code int unsigned not null,
-    PRIMARY KEY(dni),
-    FOREIGN KEY(team_code) REFERENCES Team(team_code)
+CREATE TABLE IF NOT EXISTS Sportman (
+    dni CHAR(9),
+    first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    birth_date DATE NOT NULL,
+    gender VARCHAR(30),
+    discipline VARCHAR(20),
+    country VARCHAR(20) NOT NULL,
+    local_player_code INT,
+    score INT,
+    team_code INT UNSIGNED NOT NULL,
+    PRIMARY KEY (dni),
+    FOREIGN KEY (team_code)
+        REFERENCES Team (team_code)
 );
 
-CREATE TABLE IF NOT EXISTS Fan(
-	DNI char(9),
-    first_name varchar(20) NOT NULL,
-    last_name varchar(30) NOT NULL,
-    birth_date date NOT NULL,
+CREATE TABLE IF NOT EXISTS Fan (
+    DNI CHAR(9),
+    first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    birth_date DATE NOT NULL,
     PRIMARY KEY (DNI)
 );
 
-CREATE TABLE IF NOT EXISTS Fan_Supports_Team(
-	team_code int unsigned not null unique,
-    DNI char(9),
-    FOREIGN KEY (team_code) REFERENCES Team(team_code),
-    FOREIGN KEY (DNI) REFERENCES Fan(DNI)
+CREATE TABLE IF NOT EXISTS Fan_Supports_Team (
+    team_code INT UNSIGNED NOT NULL UNIQUE,
+    DNI CHAR(9),
+    FOREIGN KEY (team_code)
+        REFERENCES Team (team_code),
+    FOREIGN KEY (DNI)
+        REFERENCES Fan (DNI)
 );
 
-/*Create FAN ATTENDS GAME table*/
 
-CREATE TABLE IF NOT EXISTS Tournament(
-		id_tournament int AUTO_INCREMENT not null unique,
-        tournament_name varchar(30),
-        discipline varchar(30) not null,
-        PRIMARY KEY(id_tournament)
+
+CREATE TABLE IF NOT EXISTS Tournament (
+    id_tournament INT AUTO_INCREMENT NOT NULL UNIQUE,
+    tournament_name VARCHAR(30),
+    discipline VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id_tournament)
 );
 
-CREATE TABLE IF NOT EXISTS Stadium(
-	idStadium int unsigned not null unique primary key auto_increment,
-	stadium_name varchar(50),
-    capacity int,
-    location varchar(30),
-    Home_team int unsigned unique not null,
-    FOREIGN KEY (Home_team) REFERENCES Team(team_code)
+CREATE TABLE IF NOT EXISTS Stadium (
+    idStadium INT UNSIGNED NOT NULL UNIQUE PRIMARY KEY AUTO_INCREMENT,
+    stadium_name VARCHAR(50),
+    capacity INT,
+    location VARCHAR(30),
+    Home_team INT UNSIGNED UNIQUE NOT NULL,
+    FOREIGN KEY (Home_team)
+        REFERENCES Team (team_code)
 );
 
-CREATE TABLE IF NOT EXISTS Game(
-	date_match date,
-    id_tournament int not null unique,
-    id_local_team int,
-    local_result enum('Winner','Loser','Tied','Other') not null,
-    local_other_result varchar(30),
-    id_guest_team int,
-	guest_result enum('Winner','Loser','Tied','Other') not null,
-    guest_other_result varchar(30),
-    stadium_name varchar(30),
-    stadium_id int unsigned not null,
-    FOREIGN KEY (stadium_id) REFERENCES Stadium(idStadium),
-    FOREIGN KEY (id_tournament) REFERENCES Tournament(id_tournament)
+CREATE TABLE IF NOT EXISTS Game (
+    date_match DATE,
+    id_tournament INT NOT NULL UNIQUE,
+    id_local_team INT UNSIGNED UNIQUE NOT NULL,
+    local_result ENUM('Winner', 'Loser', 'Tied', 'Other') NOT NULL,
+    local_other_result VARCHAR(30),
+    id_guest_team INT UNSIGNED UNIQUE NOT NULL,
+    guest_result ENUM('Winner', 'Loser', 'Tied', 'Other') NOT NULL,
+    guest_other_result VARCHAR(30),
+    stadium_name VARCHAR(30),
+    stadium_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id_local_team,id_guest_team,date_match),
+    INDEX (date_match),
+    FOREIGN KEY (id_local_team)
+        REFERENCES Team (team_code),
+    FOREIGN KEY (id_guest_team)
+        REFERENCES Team (team_code),
+    FOREIGN KEY (stadium_id)
+        REFERENCES Stadium (idStadium),
+    FOREIGN KEY (id_tournament)
+        REFERENCES Tournament (id_tournament)
 );
+
+CREATE TABLE IF NOT EXISTS Fan_Attends_Game (
+    DNI CHAR(9),
+    date_match DATE,
+    id_tournament INT NOT NULL UNIQUE,
+    id_local_team INT UNSIGNED UNIQUE NOT NULL,
+    id_guest_team INT UNSIGNED UNIQUE NOT NULL,
+    FOREIGN KEY (DNI)
+        REFERENCES Fan (DNI),
+    FOREIGN KEY (date_match)
+        REFERENCES Game (date_match),
+    FOREIGN KEY (id_tournament)
+        REFERENCES Game (id_tournament),
+    FOREIGN KEY (id_local_team)
+        REFERENCES Team (team_code),
+    FOREIGN KEY (id_guest_team)
+        REFERENCES Team (team_code)
+);
+
+
+
 /*Create table Player Plays in Game where we store the score of each player and if there are incidences such as lesions or penalties*/
 
 
