@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Staff (
     last_name VARCHAR(30) NOT NULL,
     birth_date DATE NOT NULL,
     discipline VARCHAR(30),
-    team_role VARCHAR(30),
+    staff_role enum('Medical','Mechanic','Trainer','Physiotherapist','Security','Referee','Commentator','Ticket Booth Manager','Ball Boy/Gal/They'),
     gender VARCHAR(30)
 );
 
