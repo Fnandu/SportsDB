@@ -118,6 +118,19 @@ CREATE TABLE IF NOT EXISTS Fan_Attends_Game (
         REFERENCES Team (team_code)
 );
 
+/*Create table Player_plays_in_Game where we store the score of each player and if there are incidences such as lesions or penalties*/
+CREATE TABLE IF NOT EXISTS Player_plays_in_game (
+DNI CHAR(9),
+id_tournament INT AUTO_INCREMENT NOT NULL UNIQUE,
+score INT,
+lesions INT,
+penalties INT,
+FOREIGN KEY (DNI)
+	REFERENCES Sportman(DNI),
+ FOREIGN KEY (id_tournament) 
+	REFERENCES Tournament(id_tournament)
+);
+
 
 /*Create table Player_plays_in_Game where we store the score of each player and if there are incidences such as lesions or penalties*/
 
