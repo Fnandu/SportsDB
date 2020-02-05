@@ -171,24 +171,24 @@ insert into Team(Team_name,discipline,number_players,trainer_DNI) values('Iberos
 
 /* Sportman ---> dni,first_name,last_name,birth_date,discipline,country,local_player_code,score,team_code */
 
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284753G','Jose','Gutierrez','1995-05-10','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Athletics','ESP',3,0,2);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284754H','Ivan','Paredes','1994-04-05','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Tennis','ESP',5,1,5);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284755I','Maria','Diaz','1993-05-28','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Football','ESP',8,10,1);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284756J','Eva','Espases','1996-08-09','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Cycling','USA',10,23,3);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284757K','Roberto','Marti','1995-08-23','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Formula 1','ESP',11,5,8);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284758L','Marcos','Febrer','1994-02-22','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Football','USA',4,2,10);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('64258684O','Carlos','Sainz','1993-01-28','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Golf','ESP',3,2,6);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('71256849H','Sonia','Florit','1994-09-17','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Athletics','ESP',1,2,7);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('16359725I','Jorge','Frau','1995-08-15','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Cycling','ESP',5,2,3);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('56324895P','Ana','Florit','1994-07-12','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Football','ESP',6,2,9);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('28469531M','David','Ruiz','1993-10-16','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Tennis','ESP',8,2,4);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('15629476J','Marta','Pascual','1996-07-10','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Cycling','ESP',8,2,3);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('45362894Y','Laura','Febrer','1995-04-30','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Football','ESP',7,2,10);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('65439574P','Susana','Rebassa','1994-11-12','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Basketball','ESP',9,2,2);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('10203540S','Alex','Rodríguez','1993-03-03','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Tennis','USA',7,2,4);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('32605491K','David','Sánchez','1996-04-22','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Formula 1','ESP',8,2,5);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('01623058N','Cristina','Martinez','1995-08-25','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Tennis','USA',10,2,4);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('15630248T','Miquel','Vidal','1994-06-20','NON-BINARY-GENDER ( BOEING AH-64 APACHE )','Football','ESP',7,2,9);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284753G','Jose','Gutierrez','1995-05-10','Male','Athletics','ESP',3,0,2);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284754H','Ivan','Paredes','1994-04-05','Male','Tennis','ESP',5,1,5);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284755I','Maria','Diaz','1993-05-28','Female','Football','ESP',8,10,1);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284756J','Eva','Espases','1996-08-09','Female','Cycling','USA',10,23,3);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284757K','Roberto','Marti','1995-08-23','Male','Formula 1','ESP',11,5,8);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('40284758L','Marcos','Febrer','1994-02-22','Male','Football','USA',4,2,10);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('64258684O','Carlos','Sainz','1993-01-28','Male','Golf','ESP',3,2,6);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('71256849H','Sonia','Florit','1994-09-17','Female','Athletics','ESP',1,2,7);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('16359725I','Jorge','Frau','1995-08-15','Male','Cycling','ESP',5,2,3);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('56324895P','Ana','Florit','1994-07-12','Female','Football','ESP',6,2,9);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('28469531M','David','Ruiz','1993-10-16','Male','Tennis','ESP',8,2,4);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('15629476J','Marta','Pascual','1996-07-10','Female','Cycling','ESP',8,2,3);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('45362894Y','Laura','Febrer','1995-04-30','Female','Football','ESP',7,2,10);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('65439574P','Susana','Rebassa','1994-11-12','Female','Basketball','ESP',9,2,2);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('10203540S','Alex','Rodríguez','1993-03-03','Male','Tennis','USA',7,2,4);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('32605491K','David','Sánchez','1996-04-22','Male','Formula 1','ESP',8,2,5);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('01623058N','Cristina','Martinez','1995-08-25','Female','Tennis','USA',10,2,4);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,local_player_code,score,team_code) values('15630248T','Miquel','Vidal','1994-06-20','Male','Football','ESP',7,2,9);
 
 
 /* Tounament ---> id_tournament,tournament_name */

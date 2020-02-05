@@ -1,15 +1,21 @@
 use sportdb;
+
 /*1 Consultar datos básicos de personas: jugadores, arbitros, entrenadores... */
 select discipline, first_name, last_name, local_player_code from sportman;
+
 /*2 Consultar cuantos puntos/goles/etc. ha conseguido en su carrera:*/
 select dni, team_name as team, first_name, score from sportman inner join team on sportman.team_code=team.team_code;
+
 /*3 Consultar cuantos competiciones ha ganado en su vida */
 
 /*4 Consultar cuantos jugadores hay por deporte */
+select discipline, count(case when sportman.gender='Male' then 'Male' ELSE NULL END) as male, count(case when sportman.gender='Female' then 'Female' ELSE NULL END) as female from sportman group by discipline;
 
 /*5 Consultar máximo goleador/punteador por deporte */
+select dni, first_name, discipline, max(score) from sportman group by discipline;
 
 /*6 Calcular fecha del proximo encuentro por equipo */
+select date_match from game where date_match > now();
 
 /*7 En que deportes participa un equipo: Por ejemplo Real Madrid... */
 
