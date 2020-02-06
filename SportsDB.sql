@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS Sportman (
     gender VARCHAR(50),
     discipline VARCHAR(20),
     country VARCHAR(20) NOT NULL,
-    dorsal INT,
+    player_number INT,
     score INT,
     team_code INT,
     FOREIGN KEY (team_code)
@@ -78,6 +78,8 @@ CREATE TABLE IF NOT EXISTS Sportman (
 
 CREATE TABLE IF NOT EXISTS Game (
     date_match DATE,
+    id_game int auto_increment not null,
+    /*This has to be updated into a comparative auto increment where as it creates unique a counter*/
     id_tournament INT NOT NULL UNIQUE,
     id_local_team INT,
     local_result ENUM('Winner', 'Loser', 'Tied', 'Other') NOT NULL,
@@ -85,7 +87,7 @@ CREATE TABLE IF NOT EXISTS Game (
     id_guest_team INT,
     guest_result ENUM('Winner', 'Loser', 'Tied', 'Other') NOT NULL,
     guest_score VARCHAR(30),
-    PRIMARY KEY (id_local_team,id_guest_team,date_match),
+    PRIMARY KEY (id_game,id_tournament),
     INDEX (date_match),
     FOREIGN KEY (id_local_team)
         REFERENCES Team (team_code),
@@ -97,8 +99,9 @@ CREATE TABLE IF NOT EXISTS Game (
 
 CREATE TABLE IF NOT EXISTS Fan_Attends_Game (
     DNI CHAR(9),
+        id_tournament INT NOT NULL UNIQUE,
+
     date_match DATE,
-    id_tournament INT NOT NULL UNIQUE,
     id_local_team INT,
     id_guest_team INT,
     FOREIGN KEY (DNI)
@@ -114,20 +117,39 @@ CREATE TABLE IF NOT EXISTS Fan_Attends_Game (
 );
 
 /*Create table Player_plays_in_Game where we store the score of each player and if there are incidences such as lesions or penalties*/
-CREATE TABLE IF NOT EXISTS Player_plays_in_game (
-DNI CHAR(9),
-id_tournament INT AUTO_INCREMENT NOT NULL UNIQUE,
-score INT,
-lesions INT,
-penalties INT,
-FOREIGN KEY (DNI)
-	REFERENCES Sportman(DNI),
- FOREIGN KEY (id_tournament) 
-	REFERENCES Tournament(id_tournament)
+CREATE TABLE IF NOT EXISTS Player_Plays_Game (
+    DNI CHAR(9),
+    id_tournament INT,
+    score INT,
+    penalties INT,
+    date_match DATE,
+    id_local_team INT,
+    id_guest_team INT,
+    FOREIGN KEY (DNI)
+        REFERENCES Sportman (DNI),
+    FOREIGN KEY (id_tournament)
+        REFERENCES Tournament (id_tournament),
+    FOREIGN KEY (date_match)
+        REFERENCES Game (date_match),
+    FOREIGN KEY (id_local_team)
+        REFERENCES Team (team_code),
+    FOREIGN KEY (id_guest_team)
+        REFERENCES Team (team_code)
 );
 
+Create table if not exists Injuries (
+DNI CHAR(9),
+Injury_Description longtext not null,
+Injury_Date date not null,
+Injury_Recovery_Date date,
+FOREIGN KEY (DNI)
+	REFERENCES Person(DNI)
+);
 
-/*Create table Player_plays_in_Game where we store the score of each player and if there are incidences such as lesions or penalties*/
+Create table if not exists Staff_Works_Game (
+
+);
+
 
 
 
@@ -186,26 +208,26 @@ insert into Team(Team_name,discipline,number_players,idStadium,trainer_DNI) valu
 
 insert into Team(Team_name,discipline,number_players,idStadium,trainer_DNI) values('Iberostar_Tenerife','Football',19,1,'45121535Q');
 
-/* Sportman ---> dni,first_name,last_name,birth_date,discipline,country,dorsal,score,team_code */
+/* Sportman ---> dni,first_name,last_name,birth_date,discipline,country,player_number,score,team_code */
 
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('40284753G','Jose','Gutierrez','1995-05-10','Male','Athletics','ESP',3,0,2);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('40284754H','Ivan','Paredes','1994-04-05','Male','Tennis','ESP',5,1,5);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('40284755I','Maria','Diaz','1993-05-28','Female','Football','ESP',8,10,1);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('40284756J','Eva','Espases','1996-08-09','Female','Cycling','USA',10,23,3);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('40284757K','Roberto','Marti','1995-08-23','Male','Formula 1','ESP',11,5,8);
-insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('40284758L','Marcos','Febrer','1994-02-22','Male','Football','USA',4,2,10);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('64258684O','Carlos','Sainz','1993-01-28','Male','Golf','ESP',3,2,6);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('71256849H','Sonia','Florit','1994-09-17','Female','Athletics','ESP',1,2,7);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('16359725I','Jorge','Frau','1995-08-15','Male','Cycling','ESP',5,2,3);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('56324895P','Ana','Florit','1994-07-12','Female','Football','ESP',6,2,9);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('28469531M','David','Ruiz','1993-10-16','Male','Tennis','ESP',8,2,4);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('15629476J','Marta','Pascual','1996-07-10','Female','Cycling','ESP',8,2,3);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('45362894Y','Laura','Febrer','1995-04-30','Female','Football','ESP',7,2,10);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('65439574P','Susana','Rebassa','1994-11-12','Female','Basketball','ESP',9,2,2);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('10203540S','Alex','Rodríguez','1993-03-03','Male','Tennis','USA',7,2,4);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('32605491K','David','Sánchez','1996-04-22','Male','Formula 1','ESP',8,2,5);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('01623058N','Cristina','Martinez','1995-08-25','Female','Tennis','USA',10,2,4);
-insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,dorsal,score,team_code) values('15630248T','Miquel','Vidal','1994-06-20','Male','Football','ESP',7,2,9);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('40284753G','Jose','Gutierrez','1995-05-10','Male','Athletics','ESP',3,0,2);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('40284754H','Ivan','Paredes','1994-04-05','Male','Tennis','ESP',5,1,5);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('40284755I','Maria','Diaz','1993-05-28','Female','Football','ESP',8,10,1);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('40284756J','Eva','Espases','1996-08-09','Female','Cycling','USA',10,23,3);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('40284757K','Roberto','Marti','1995-08-23','Male','Formula 1','ESP',11,5,8);
+insert into Sportman (dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('40284758L','Marcos','Febrer','1994-02-22','Male','Football','USA',4,2,10);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('64258684O','Carlos','Sainz','1993-01-28','Male','Golf','ESP',3,2,6);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('71256849H','Sonia','Florit','1994-09-17','Female','Athletics','ESP',1,2,7);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('16359725I','Jorge','Frau','1995-08-15','Male','Cycling','ESP',5,2,3);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('56324895P','Ana','Florit','1994-07-12','Female','Football','ESP',6,2,9);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('28469531M','David','Ruiz','1993-10-16','Male','Tennis','ESP',8,2,4);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('15629476J','Marta','Pascual','1996-07-10','Female','Cycling','ESP',8,2,3);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('45362894Y','Laura','Febrer','1995-04-30','Female','Football','ESP',7,2,10);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('65439574P','Susana','Rebassa','1994-11-12','Female','Basketball','ESP',9,2,2);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('10203540S','Alex','Rodríguez','1993-03-03','Male','Tennis','USA',7,2,4);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('32605491K','David','Sánchez','1996-04-22','Male','Formula 1','ESP',8,2,5);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('01623058N','Cristina','Martinez','1995-08-25','Female','Tennis','USA',10,2,4);
+insert into Sportman(dni,first_name,last_name,birth_date,gender,discipline,country,player_number,score,team_code) values('15630248T','Miquel','Vidal','1994-06-20','Male','Football','ESP',7,2,9);
 
 
 /* Tounament ---> id_tournament,tournament_name */
@@ -222,7 +244,7 @@ insert into Tournament(tournament_name, discipline) values ('Worldcup','Football
 
 /* ------------------------------ */
 
-SELECT * FROM Fan f ;
+
 
 INSERT INTO Fan VALUES("98765432A","Barack","Obama","1961-8-4");
 INSERT INTO Fan VALUES("00000000A","Jesus","De Nazaret","0001-1-1");
