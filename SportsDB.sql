@@ -137,13 +137,33 @@ CREATE TABLE IF NOT EXISTS Player_Plays_Game (
         REFERENCES Team (team_code)
 );
 
+CREATE TABLE IF NOT EXISTS Person (
+DNI_Sportman char(9) unique,
+DNI_Staff char(9) unique,
+DNI_Supporter char(9) unique,
+fristname varchar(50),
+lastname varchar(50),
+BirthDate date not null,
+PlayerTeamId int null,
+FOREIGN KEY (DNI_Sportman) REFERENCES Sportman(dni),
+FOREIGN KEY (DNI_Staff) REFERENCES Staff(dni),
+FOREIGN KEY (DNI_Supporter) REFERENCES Fan(dni),
+FOREIGN KEY (PlayerTeamId) REFERENCES Sportman(team_code)
+);
+/*
+Para las lesiones, como solo es un jugador lo más lógico (y lo que se hace) es crear 3 referencias distintas en la tabla de Person, una para Staff, otra para Sportman y otra para Fans, siendo algunas nulas ya que un sportman no puede ser un fan ni un miembro del staff a la vez.
+Así cuando hagas la referencia no introducirás el valor de un fan, no sería una lesión producida por el juego, en todo caso si un fan sufriera un percance según el modelo se introduciría como lesionado, al igual que un miembro del staff.
+Por eso he hecho 3 columnas identificadoras de persona.
+*/
+
+
 Create table if not exists Injuries (
 DNI CHAR(9),
 Injury_Description longtext not null,
 Injury_Date date not null,
 Injury_Recovery_Date date,
 FOREIGN KEY (DNI)
-	REFERENCES Person(DNI)
+	REFERENCES Person(DNI_Sportman)
 );
 
 Create table if not exists Staff_Works_Game (
