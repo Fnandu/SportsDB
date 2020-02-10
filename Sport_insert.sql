@@ -1,3 +1,4 @@
+use sportdb;
 /*Create Inserts for all the new elements, such as games, fans and tournaments*/
 /*Person --> DNI, First Name, Last Name, Birth date, Gender, Country*/
 INSERT INTO Person (

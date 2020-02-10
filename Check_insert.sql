@@ -1,7 +1,18 @@
 use sportdb;
 
-/*1 Consultar datos básicos de personas: jugadores, arbitros, entrenadores... */
-select discipline, first_name, last_name, local_player_code from sportman;
+/*1 Consultar datos básicos de personas*/
+SELECT person.dni, first_name, last_name, birth_date,gender,country,
+CASE
+	WHEN staff.job IS NOT NULL THEN staff.job
+END,
+CASE
+	WHEN staff.job IS NOT NULL THEN staff.discipline
+END
+
+ from person
+left join sportman	on person.DNI = sportman.dni
+left join fan	on person.DNI = fan.dni
+left join staff	on person.DNI = staff.dni;
 
 /*2 Consultar cuantos puntos/goles/etc. ha conseguido en su carrera:*/
 select dni, team_name as team, first_name, score from sportman inner join team on sportman.team_code=team.team_code;
