@@ -32,10 +32,15 @@ select discipline, count(discipline), sum(number_players) as team from team grou
 
 /*11 Listar a todos los jugadores que juegan en mas de un deporte */
 
+
 /*12 Listado de arbitros por pais */
+
 
 /*13 Listar jugadores que juegan en ligas fuera de su pais */
 
+
 /*14 Por tipo de persona, listar la que más gana y obtener la siguiente información */
 
+
 /*15 Listar por estadio el numero de espectadores máximo que han tenido en un encuentro */
+
