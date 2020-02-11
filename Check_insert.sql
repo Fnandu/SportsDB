@@ -15,7 +15,7 @@ left join fan	on person.DNI = fan.dni
 left join staff	on person.DNI = staff.dni;
 
 /*2 Consultar cuantos puntos/goles/etc. ha conseguido en su carrera:*/
-select sportman.dni, team_name as team, person.first_name, score from sportman inner join team on sportman.team_code=team.team_code left join person on sportman.dni = person.dni;
+select sportman.dni, team_name as team, person.first_name, sum(score) from sportman inner join team on sportman.team_code=team.team_code left join person on sportman.dni = person.dni group by first_name;
 
 /*3 Consultar cuantos partidos ha ganado en su vida */
 select p.first_name,p.last_name,count(*) as 'Games won' from sportman 
@@ -55,11 +55,19 @@ select discipline, count(discipline) 'Number of teams', sum(number_players) as '
 
 /*11 Listar a todos los jugadores que juegan en mas de un deporte */
 select first_name from sportman 
-left join person on person.dni = sportman.dni
+left join person on person.dni = sportman.dni where 
+(
+	select count(*) from sportman group by dni
+) > 1 
+group by first_name
 ; 
 
 /*12 Listado de arbitros por pais */
-
+select person.first_name, person.last_name, person.country from staff
+left join Person on person.dni = staff.dni
+where job = 'Referee' 
+order by person.country
+;
 
 /*13 Listar jugadores que juegan en ligas fuera de su pais */
 
@@ -68,4 +76,10 @@ left join person on person.dni = sportman.dni
 
 
 /*15 Listar por estadio el numero de espectadores máximo que han tenido en un encuentro */
-
+select stadium_name, count(dni) from stadium  s
+left join game g ON g.id_stadium = s.id_stadium
+left join Fan_Attends_Game fa on fa.date_match = g.date_match AND
+								 fa.id_local_team = g.id_local_team AND
+                                 fa.id_guest_team = g.id_guest_team
+order by count(dni) desc
+;
