@@ -34,22 +34,29 @@ select discipline, count(case when person.gender='Male' then 'Male' ELSE NULL EN
 select sportman.dni, person.first_name, discipline, max(score) from sportman left join person on person.dni = sportman.dni group by discipline;
 
 /*6 Calcular fecha del proximo encuentro por equipo */
-select date_match from game where date_match > now();
+select date_match from game where date_match > now() order by date_match desc;
 
 /*7 En que deportes participa un equipo: Por ejemplo Real Madrid... */
 Select team_name, discipline from team order by team_name asc;
 
 /*8 Listado de equipos ordenados por numero de fans */
-
+select team_name, count(ft.dni) as 'Number of fans' from team 
+left join Fan_Supports_Team ft on ft.team_code = team.team_code
+left join fan f on f.dni = ft.dni;
 
 /*9 Ultimo encuentro en el que lesiono un jugador */
-
+select first_name,injury_date from injuries
+left join sportman on sportman.dni = injuries.dni
+left join person on person.dni = sportman.dni
+order by injury_date desc limit 1;
 
 /*10 Listado de numero de jugadores/equipos por deporte y competicion */
-select discipline, count(discipline), sum(number_players) as team from team group by discipline;
+select discipline, count(discipline) 'Number of teams', sum(number_players) as 'Total players' from team group by discipline;
 
 /*11 Listar a todos los jugadores que juegan en mas de un deporte */
-
+select first_name from sportman 
+left join person on person.dni = sportman.dni
+; 
 
 /*12 Listado de arbitros por pais */
 
