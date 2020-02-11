@@ -17,7 +17,7 @@ left join staff	on person.DNI = staff.dni;
 /*2 Consultar cuantos puntos/goles/etc. ha conseguido en su carrera:*/
 select sportman.dni, team_name as team, person.first_name, score from sportman inner join team on sportman.team_code=team.team_code left join person on sportman.dni = person.dni;
 
-/*3 Consultar cuantos competiciones ha ganado en su vida */
+/*3 Consultar cuantos partidos ha ganado en su vida */
 select p.first_name,p.last_name,count(*) as 'Games won' from sportman 
 left join Player_Plays_Game pg on pg.dni = sportman.dni 
 left join person p on p.dni = sportman.dni 
@@ -28,10 +28,10 @@ case
 end;
 
 /*4 Consultar cuantos jugadores hay por deporte */
-select discipline, count(case when sportman.gender='Male' then 'Male' ELSE NULL END) as male, count(case when sportman.gender='Female' then 'Female' ELSE NULL END) as female from sportman group by discipline;
+select discipline, count(case when person.gender='Male' then 'Male' ELSE NULL END) as male, count(case when person.gender='Female' then 'Female' ELSE NULL END) as female from sportman left join person on person.dni = sportman.dni  group by discipline;
 
 /*5 Consultar máximo goleador/punteador por deporte */
-select dni, first_name, discipline, max(score) from sportman group by discipline;
+select sportman.dni, person.first_name, discipline, max(score) from sportman left join person on person.dni = sportman.dni group by discipline;
 
 /*6 Calcular fecha del proximo encuentro por equipo */
 select date_match from game where date_match > now();
