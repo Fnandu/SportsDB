@@ -3,11 +3,11 @@ use sportdb;
 /*1 Consultar datos básicos de personas*/
 SELECT person.dni, first_name, last_name, birth_date,gender,country,
 CASE
-	WHEN staff.job IS NOT NULL THEN staff.job
-END,
-CASE
-	WHEN staff.job IS NOT NULL THEN staff.discipline
-END
+	when  staff.discipline is not null then staff.discipline
+    else sportman.discipline
+END AS Discipline
+
+, staff.job, sportman.team_code, fan.expiry_date
 
  from person
 left join sportman	on person.DNI = sportman.dni

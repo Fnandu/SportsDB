@@ -143,11 +143,11 @@ values
 insert into Sportman (
 	DNI,
   player_number, 
-  score, team_code
+  score, team_code, discipline
 ) 
 values 
   (
-    '40284753G', 3, 0, 1
+    '40284753G', 3, 0, 1 ,'Football'
   );
 /* Tounament ---> id_tournament,tournament_name */
 insert into Tournament(tournament_name, discipline) 
