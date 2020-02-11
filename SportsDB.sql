@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS Player_Plays_Game (
   DNI CHAR(9), 
   id_tournament INT, 
   score INT, 
-  penalties INT, 
+  penalties varchar(50), 
   date_match DATE, 
   id_local_team INT, 
   id_guest_team INT, 

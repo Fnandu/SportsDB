@@ -192,7 +192,7 @@ VALUES
     'Winner', 'Loser', 'Tied', 'Other'
   )*/
 INSERT INTO Game( 
-date_match, 
+  date_match, 
   id_stadium , 
   id_tournament , 
   id_local_team , 
@@ -204,5 +204,19 @@ date_match,
    )
 VALUES 
   (
-    "2017-12-12", 2, 1, 1, 3, "Winner",  9, 0, "Loser"
+    "2017-12-12", 2, 1, 1, 3, "Winner",  1, 0, "Loser"
+  );
+  
+  INSERT INTO Player_Plays_Game(
+      DNI, 
+  id_tournament , 
+  score , 
+  penalties , 
+  date_match , 
+  id_local_team , 
+  id_guest_team 
+  )
+  VALUES(
+  '40284753G','1','3','None','2017-12-12','1','1'
+
   );
