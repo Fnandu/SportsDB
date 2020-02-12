@@ -101,8 +101,8 @@ CREATE TABLE IF NOT EXISTS Fan_Attends_Game (
   FOREIGN KEY (DNI) REFERENCES Fan (DNI), 
   FOREIGN KEY (date_match) REFERENCES Game (date_match), 
   FOREIGN KEY (id_tournament) REFERENCES Game (id_tournament), 
-  FOREIGN KEY (id_local_team) REFERENCES Game (team_code), 
-  FOREIGN KEY (id_guest_team) REFERENCES Game (team_code)
+  FOREIGN KEY (id_local_team) REFERENCES Team (team_code), 
+  FOREIGN KEY (id_guest_team) REFERENCES Team (team_code)
 );
 /*Create table Player_plays_in_Game where we store the score of each player and if there are incidences such as lesions or penalties*/
 CREATE TABLE IF NOT EXISTS Player_Plays_Game (

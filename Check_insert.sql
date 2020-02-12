@@ -7,12 +7,17 @@ CASE
     else sportman.discipline
 END AS Discipline
 
-, staff.job, sportman.team_code, fan.expiry_date
+, staff.job, sportman.team_code, 
+CASE
+ WHEN fan.dni is not null then fan.expiry_date
+ else null
+END
 
  from person
 left join sportman	on person.DNI = sportman.dni
 left join fan	on person.DNI = fan.dni
 left join staff	on person.DNI = staff.dni;
+
 
 /*2 Consultar cuantos puntos/goles/etc. ha conseguido en su carrera:*/
 select sportman.dni, team_name as team, person.first_name, sum(score) from sportman inner join team on sportman.team_code=team.team_code left join person on sportman.dni = person.dni group by first_name;
@@ -76,7 +81,7 @@ order by person.country
 
 
 /*15 Listar por estadio el numero de espectadores máximo que han tenido en un encuentro */
-select stadium_name, count(dni) from stadium  s
+select stadium_name, count(dni) as 'Fans that attended game' from stadium  s
 left join game g ON g.id_stadium = s.id_stadium
 left join Fan_Attends_Game fa on fa.date_match = g.date_match AND
 								 fa.id_local_team = g.id_local_team AND
