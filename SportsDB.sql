@@ -130,7 +130,7 @@ Create table if not exists Staff_Works_Game (
   date_match DATE, 
   id_local_team INT, 
   id_guest_team INT, 
-  foreign key (DNI) references STAFF(DNI), 
+  foreign key (DNI) references Staff (DNI), 
   FOREIGN KEY (id_tournament) REFERENCES Tournament (id_tournament), 
   FOREIGN KEY (date_match) REFERENCES Game (date_match), 
   FOREIGN KEY (id_local_team) REFERENCES Team (team_code), 
