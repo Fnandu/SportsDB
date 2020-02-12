@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS Staff (
     'Commentator', 'Ticket Booth Manager', 
     'Ball Boy/Gal/They'
   ), 
-  PRIMARY KEY(DNI), 
   foreign key (DNI) REFERENCES Person(DNI)
 );
 CREATE TABLE IF NOT EXISTS Fan (
