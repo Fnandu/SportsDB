@@ -62,7 +62,7 @@ select discipline, count(discipline) 'Number of teams', sum(number_players) as '
 select first_name from sportman 
 left join person on person.dni = sportman.dni where 
 (
-	select count(*) from sportman group by dni
+	select count(*) from sportman  where sportman.dni = person.dni group by dni
 ) > 1 
 group by first_name
 ; 

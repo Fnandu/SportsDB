@@ -90,6 +90,110 @@ VALUES
     '45121535Q', 'Aritz', 'Lopez', '1979-4-10', 
     'Female', 'CHN'
   );
+  INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '87451551N', 'Mariano', 'Rajoy', 
+    '1970-10-10', 'Male', "ESP"
+  );
+  INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '45464584U', 'Aitor', 'Lopez', 
+    '1992-2-14', 'Male', 'ARG'
+  );
+  INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '08208287R', 'Lucia', 'Soler', 
+    '1983-1-20', 'Female', 'ESP'
+  );
+  INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '99886587W', 'Maria', 'Pilar', 
+    '1990-12-12', 'Female', 'PAR'
+  );
+  INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '27345373Y', 'Sonia', 'Perona', 
+    '1991-11-11', 'Female', 'FRA'
+  );
+  INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '70525494L', 'Juan', 'Miñano', 
+    '1979-4-12', 'Male', 'POR'
+  );
+  INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '98178946L', 'Vicente', 'Ferrero', 
+    '1999-5-30', 'Male', 'ITA'
+  );
+  INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '42253641L', 'Alba', 'Cerda', 
+    '1968-5-5', 'Female', 'PRA'
+  );
+    INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '40439219K', 'Encarnación', 'Feliz', 
+    '1978-3-29', 'Female', 'ESP'
+  );
+      INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '28514849R', 'Manuela', 'Carmela', 
+    '1988-12-1', 'Female', 'ESP'
+  );
+      INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '99974031T', 'Maria', 'Concepcion', 
+    '1950-5-23', 'Female', 'ECU'
+  );
+      INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '29063878C', 'Alvaro', 'Catalan', 
+    '1954-11-11', 'Male', 'ESP'
+  );
+      INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '94997345P', 'Ricardo', 'Nieves', 
+    '1970-2-3', 'Male', 'URU'
+  );
 /*Stadium --->*/
 INSERT INTO Stadium(stadium_name, capacity, location) 
 VALUES 
@@ -128,8 +232,87 @@ VALUES
 	DNI, Discipline, Job
   ) values
   (
-	"43511241J",'Football','Trainer'
+	'43511241J','Football','Trainer'
   );
+   insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'45555141H','Basketball','Medical'
+  );
+   insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'45555141H','Football','Medical'
+  );
+   insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'51243524S','MotoGP','Mechanic'
+  );
+   insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'55151543G','Petanca','Security'
+  );
+   insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'41524254B','Tennis','Ball Boy/Gal/They'
+  );
+   insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'45256585C','Football','Commentator'
+  );
+   insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'48562457J','Ping Pong','Physiotherapist'
+  );
+   insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'41214124M','Golf','Referee'
+  );
+  insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'45121535Q','Petanca','Ticket Booth Manager'
+  );
+  insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'43511241J','Football','Trainer'
+  );
+  insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'99974031T','Petanca','Trainer'
+  );
+  insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'29063878C','Basketball','Trainer'
+  );
+  insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'94997345P','Tennis','Trainer'
+  );
+
   
 /*Team ---> Team_code,Team_name,discipline,number_players,trainer_DNI*/
 insert into Team(
@@ -138,6 +321,27 @@ insert into Team(
 values 
   (
     'Betis_CF', 'Football', 18,  '43511241J'
+  );
+  insert into Team(
+  Team_name, discipline, number_players, trainer_DNI
+) 
+values 
+  (
+    'Seleccion_Portuguesa', 'Petanca', 1,  '99974031T'
+  );
+  insert into Team(
+  Team_name, discipline, number_players, trainer_DNI
+) 
+values 
+  (
+    'Barcelona', 'Basketball', 11,  '29063878C'
+  );
+  insert into Team(
+  Team_name, discipline, number_players, trainer_DNI
+) 
+values 
+  (
+    'Federacion Española de Tennis', 'Tennis', 1,  '94997345P'
   );
 /* Sportman ---> dni,player_number,score,team_code */
 insert into Sportman (
@@ -157,6 +361,87 @@ values
 values 
   (
     '40284753G', 1, 20, 1 ,'Handball'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '87451551N', 069, 12, 2,'Petanca'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '45464584U', 058, 40, 2,'MotoGP'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '08208287R', 096, 3, 4,'Ping Pong'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '27345373Y', 558, 9, 2,'Petanca'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '70525494L', 099, 2, 4,'Tennis'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '98178946L', 10, 8, 3,'Basketball'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '42253641L', 4, 4, 3,'Basketball'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '40439219K', 102, 5, 4,'Tennis'
+  );
+  insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '40439219K', 055, 2, 4,'Ping Pong'
   );
 /* Tounament ---> id_tournament,tournament_name */
 insert into Tournament(tournament_name, discipline) 
@@ -191,7 +476,27 @@ VALUES
 INSERT INTO Fan(DNI, contract_date, expiry_date)
 VALUES 
   (
-    "40284753G", "1961-8-4","1961-12-4"
+    '40284753G', '1961-8-4','1961-12-4'
+  );
+  INSERT INTO Fan(DNI, contract_date, expiry_date)
+VALUES 
+  (
+    '94997345P', '2011-12-1','2012-12-1'
+  );
+  INSERT INTO Fan(DNI, contract_date, expiry_date)
+VALUES 
+  (
+    '29063878C', '2008-5-12','2009-12-12'
+  );
+  INSERT INTO Fan(DNI, contract_date, expiry_date)
+VALUES 
+  (
+    '99974031T', '1990-1-1','2000-1-1'
+  );
+  INSERT INTO Fan(DNI, contract_date, expiry_date)
+VALUES 
+  (
+    '28514849R', '2015-12-12','2030-12-12'
   );
 
 /* Game -->  Date of the match, ID of the Stadium, Tournament ID,

@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS Staff (
     'Commentator', 'Ticket Booth Manager', 
     'Ball Boy/Gal/They'
   ), 
-  PRIMARY KEY(DNI), 
   foreign key (DNI) REFERENCES Person(DNI)
 );
 CREATE TABLE IF NOT EXISTS Fan (
@@ -44,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Stadium (
 );
 CREATE TABLE IF NOT EXISTS Team (
   team_code INT AUTO_INCREMENT, 
-  team_name VARCHAR(20) NOT NULL, 
+  team_name VARCHAR(50) NOT NULL, 
   discipline VARCHAR(30) NOT NULL, 
   number_players INT NOT NULL, 
   trainer_DNI CHAR(9), 
