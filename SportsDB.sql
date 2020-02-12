@@ -27,7 +27,6 @@ CREATE TABLE IF NOT EXISTS Fan (
   DNI CHAR(9), 
   contract_date DATE,
   expiry_date DATE,
-  PRIMARY KEY(DNI), 
   foreign key (DNI) REFERENCES Person(DNI)
 );
 CREATE TABLE IF NOT EXISTS Tournament (
