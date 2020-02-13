@@ -194,6 +194,32 @@ VALUES
     '94997345P', 'Ricardo', 'Nieves', 
     '1970-2-3', 'Male', 'URU'
   );
+ /*------------------------------------------------------------------------*/ 
+        INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '49865742P', 'Cata', 'Plines', 
+    '1976-5-13', 'Male', 'CHI'
+  );
+          INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '46325698K', 'Misco', 'Jones', 
+    '1964-8-18', 'Male', 'EEUU'
+  );
+           INSERT INTO Person (
+  dni, first_name, last_name, birth_date, gender, country
+) 
+VALUES 
+  (
+    '79564862I', 'Tomi', 'Navo', 
+    '1969-11-20', 'Male', 'ESP'
+  );
+  
 /*Stadium --->*/
 INSERT INTO Stadium(stadium_name, capacity, location) 
 VALUES 
@@ -233,6 +259,7 @@ VALUES
   ) values
   (
 	'43511241J','Football','Trainer'
+    
   );
    insert into Staff (
 	DNI, Discipline, Job
@@ -292,7 +319,7 @@ VALUES
 	DNI, Discipline, Job
   ) values
   (
-	'43511241J','Football','Trainer'
+	'49865742P','Football','Trainer'
   );
   insert into Staff (
 	DNI, Discipline, Job
@@ -312,7 +339,25 @@ VALUES
   (
 	'94997345P','Tennis','Trainer'
   );
-
+/*------------------------------------------------------------------*/
+ insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'49865742P','Petanca','Trainer'
+  );
+  insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'46325698K','Basketball','Trainer'
+  );
+    insert into Staff (
+	DNI, Discipline, Job
+  ) values
+  (
+	'79564862I','Tennis','Trainer'
+  );
   
 /*Team ---> Team_code,Team_name,discipline,number_players,trainer_DNI*/
 insert into Team(
@@ -321,7 +366,15 @@ insert into Team(
 values 
   (
     'Betis_CF', 'Football', 18,  '43511241J'
-  );
+  ); 
+  insert into Team(
+  Team_name, discipline, number_players, trainer_DNI
+) 
+values 
+  (
+    'FC_Barcelona', 'Football', 24,  '49865742P'
+  );/*1*/
+  
   insert into Team(
   Team_name, discipline, number_players, trainer_DNI
 ) 
@@ -329,6 +382,14 @@ values
   (
     'Seleccion_Portuguesa', 'Petanca', 1,  '99974031T'
   );
+    insert into Team(
+  Team_name, discipline, number_players, trainer_DNI
+) 
+values 
+  (
+    'Seleccion_Española', 'Petanca', 1,  '49865742P'
+  ); /*1*/
+  
   insert into Team(
   Team_name, discipline, number_players, trainer_DNI
 ) 
@@ -336,6 +397,15 @@ values
   (
     'Barcelona', 'Basketball', 11,  '29063878C'
   );
+  
+    insert into Team(
+  Team_name, discipline, number_players, trainer_DNI
+) 
+values 
+  (
+    'Madrir', 'Basketball', 14,  '46325698K'
+  );  /*1*/
+  
   insert into Team(
   Team_name, discipline, number_players, trainer_DNI
 ) 
@@ -343,6 +413,14 @@ values
   (
     'Federacion Española de Tennis', 'Tennis', 1,  '94997345P'
   );
+  insert into Team(
+  Team_name, discipline, number_players, trainer_DNI
+) 
+values 
+  (
+    'Federacion Francesa de Tennis', 'Tennis', 1,  '79564862I'
+  ); /*1*/
+  
 /* Sportman ---> dni,player_number,score,team_code */
 insert into Sportman (
 	DNI,
@@ -369,7 +447,7 @@ values
 ) 
 values 
   (
-    '87451551N', 069, 12, 2,'Petanca'
+    '87451551N', 069, 12, 3,'Petanca'
   );
   insert into Sportman (
 	DNI,
@@ -414,7 +492,7 @@ values
 ) 
 values 
   (
-    '98178946L', 10, 8, 3,'Basketball'
+    '98178946L', 10, 8, 5,'Basketball'
   );
   insert into Sportman (
 	DNI,
@@ -423,7 +501,7 @@ values
 ) 
 values 
   (
-    '42253641L', 4, 4, 3,'Basketball'
+    '42253641L', 4, 4, 6,'Basketball'
   );
   insert into Sportman (
 	DNI,
@@ -530,7 +608,8 @@ VALUES
   (
     "2017-12-12", 2, 1, 1, 3, "Winner",  1, 0, "Loser"
   );
-  
+/*Player_Plays_Game --> (DNI,id_tournament,score,penalties,date_match,id_local_team,id_local_team,id_guest_team) */
+
   INSERT INTO Player_Plays_Game(
       DNI, 
   id_tournament , 
@@ -542,19 +621,37 @@ VALUES
   )
   VALUES(
   '40284753G','1','3','None','2017-12-12','1','1'
-
+  );
+    INSERT INTO Player_Plays_Game(
+      DNI, 
+  id_tournament , 
+  score , 
+  penalties , 
+  date_match , 
+  id_local_team , 
+  id_guest_team 
+  )
+  VALUES(
+  '40284753G','1','3','None','2017-12-12','1','1'
   );
 
-
     /* sportman_works_for_team ---> DNI,team_code,contract_date, contract_expiry, salary*/
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('27345373Y', 2,'2015-10-12','2018-10-12', 1000);
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40284753G', 3,'2014-7-12','2019-7-12', 420000);
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('98178946L', 3,'2008-8-8','2012-8-8', 4101010);
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('70525494L', 4,'2010-10-10','2018-10-9', 515632);
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2001-2-12','2003-2-12', 6296);
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2000-1-1','2005-1-1', 3665151);
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2010-12-12','2014-12-12', 515158);
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2019-6-10','2020-2-20', 5158844);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('27345373Y', 3,'2015-10-12','2018-10-12', 1000);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40284753G', 1,'2014-7-12','2019-7-12', 420000);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('98178946L', 5,'2008-8-8','2012-8-8', 4101010);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('70525494L', 7,'2010-10-10','2018-10-9', 515632);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('87451551N', 4,'2001-2-12','2003-2-12', 6296);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', 2,'2000-1-1','2005-1-1', 3665151);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('42253641L', 6,'2010-12-12','2014-12-12', 515158);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40439219K', 8,'2019-6-10','2020-2-20', 5158844);
+
+
+/* Staff_Works_For_Team --->  DNI,team_code,contract_date, contract_expiry, salary */
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('45555141H', 5, '2018-8-12', '2019-6-20', 1200);
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('43511241J', 1, '2015-9-9', '2020-5-12', 1500);
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('55151543G', 3, '2019-3-12', '2022-2-22', 1100);
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('45256585C', 2, '2010-5-10', '2018-5-10', 900);
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('41524254B', 7, '2018-7-9', '2020-6-10', 800);
 
  /* INJURIES ------------------------ */
  INSERT
@@ -603,4 +700,5 @@ INSERT
 VALUES ("87451551N",
 "Rompedura de A... por Pere",
 "2019-10-10");
+
 
