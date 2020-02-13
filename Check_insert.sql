@@ -84,7 +84,41 @@ group by first_name , last_name;
 select * from tournament;
 
 /*14 Por tipo de persona, listar la que más gana y obtener la siguiente información */
+select 
+case 
+	when s.discipline is not null then s.job
+    else 'Sportman'
+end as 'Type'
 
+,first_name,last_name,
+case 
+	when s.discipline is not null then s.discipline
+    else sp.discipline
+end as 'Sport',
+case 
+	when st.salary is not null then st.salary
+    else spt.salary
+end as 'Salary',
+case 
+	when st.team_code is not null then st.team_code
+    else spt.team_code
+end as 'Team'
+  from person p
+  left join Staff s on s.DNI = p.DNI
+  left join Sportman sp on sp.DNI = p.DNI
+  left join Staff_Works_For_Team st on st.DNI = s.DNI
+  left join Sportman_Works_For_Team spt on spt.DNI = sp.DNI
+
+group by
+ case 
+	when s.discipline is not null then s.job
+    else 'Sportman'
+end
+order by case 
+	when st.salary is not null then st.salary
+    else spt.salary
+end desc
+ ;
 
 /*15 Listar por estadio el numero de espectadores máximo que han tenido en un encuentro */
 select stadium_name, count(dni) as 'Fans that attended game' from stadium  s

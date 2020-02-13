@@ -137,4 +137,22 @@ Create table if not exists Staff_Works_Game (
   FOREIGN KEY (id_local_team) REFERENCES Team (team_code), 
   FOREIGN KEY (id_guest_team) REFERENCES Team (team_code)
 );
+CREATE TABLE IF NOT EXISTS Staff_Works_For_Team (
+DNI varchar(9),
+team_code INT,
+contract_date DATE,
+contract_expiry DATE,
+salary BIGINT,
+foreign key (DNI) references Staff(DNI),
+foreign key (team_code) references Team(team_code)
+);
+CREATE TABLE IF NOT EXISTS Sportman_Works_For_Team (
+DNI varchar(9),
+team_code INT,
+contract_date DATE,
+contract_expiry DATE,
+salary BIGINT,
+foreign key (DNI) references Sportman(DNI),
+foreign key (team_code) references Team(team_code)
+);
 
