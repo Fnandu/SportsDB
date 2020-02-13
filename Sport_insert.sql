@@ -443,6 +443,16 @@ values
   (
     '40439219K', 055, 2, 4,'Ping Pong'
   );
+  
+    insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '40439219K', 088, 15, 1,'Handball'
+  );
 /* Tounament ---> id_tournament,tournament_name, country */
 insert into Tournament(tournament_name, discipline,country) 
 values 
