@@ -534,3 +534,15 @@ VALUES
   '40284753G','1','3','None','2017-12-12','1','1'
 
   );
+    /* sportman_works_for_team ---> DNI,team_code,contract_date, contract_expiry, salary*/
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('27345373Y', 2,'2015-10-12','2018-10-12', 1000);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40284753G', 3,'2014-7-12','2019-7-12', 420000);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('98178946L', 3,'2008-8-8','2012-8-8', 4101010);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('70525494L', 4,'2010-10-10','2018-10-9', 515632);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2001-2-12','2003-2-12', 6296);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2000-1-1','2005-1-1', 3665151);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2010-12-12','2014-12-12', 515158);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2019-6-10','2020-2-20', 5158844);
+
+
+
