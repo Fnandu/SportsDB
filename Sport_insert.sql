@@ -1,4 +1,4 @@
-use sportdb;
+use SportDB;
 /*Create Inserts for all the new elements, such as games, fans and tournaments*/
 /*Person --> DNI, First Name, Last Name, Birth date, Gender, Country*/
 INSERT INTO Person (
@@ -443,6 +443,16 @@ values
   (
     '40439219K', 055, 2, 4,'Ping Pong'
   );
+  
+    insert into Sportman (
+	DNI,
+  player_number, 
+  score, team_code, discipline
+) 
+values 
+  (
+    '40439219K', 088, 15, 1,'Handball'
+  );
 /* Tounament ---> id_tournament,tournament_name, country */
 insert into Tournament(tournament_name, discipline,country) 
 values 
@@ -534,6 +544,8 @@ VALUES
   '40284753G','1','3','None','2017-12-12','1','1'
 
   );
+
+
     /* sportman_works_for_team ---> DNI,team_code,contract_date, contract_expiry, salary*/
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('27345373Y', 2,'2015-10-12','2018-10-12', 1000);
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40284753G', 3,'2014-7-12','2019-7-12', 420000);
@@ -544,5 +556,51 @@ insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expi
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2010-12-12','2014-12-12', 515158);
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', ,'2019-6-10','2020-2-20', 5158844);
 
+ /* INJURIES ------------------------ */
+ INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("40284753G",
+"Torcedura de pene grado 2",
+"2020-02-01");
 
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date,
+	Injury_Recovery_Date )
+VALUES ("40439219K",
+"Esguince de bello capilar",
+"2018-05-20",
+"2019-06-10");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("42253641L",
+"Ma hecho un esguince",
+"2020-12-1");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("98178946L",
+"Golpe por Arturo",
+"1997-01-01");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("87451551N",
+"Rompedura de A... por Pere",
+"2019-10-10");
 
