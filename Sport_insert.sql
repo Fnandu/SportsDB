@@ -447,7 +447,7 @@ values
 ) 
 values 
   (
-    '87451551N', 069, 12, 2,'Petanca'
+    '87451551N', 069, 12, 3,'Petanca'
   );
   insert into Sportman (
 	DNI,
@@ -492,7 +492,7 @@ values
 ) 
 values 
   (
-    '98178946L', 10, 8, 3,'Basketball'
+    '98178946L', 10, 8, 5,'Basketball'
   );
   insert into Sportman (
 	DNI,
@@ -501,7 +501,7 @@ values
 ) 
 values 
   (
-    '42253641L', 4, 4, 3,'Basketball'
+    '42253641L', 4, 4, 6,'Basketball'
   );
   insert into Sportman (
 	DNI,
@@ -670,7 +670,11 @@ VALUES
   id_guest_team 
   )
   VALUES(
+<<<<<<< HEAD
   '40284753G','2','3','None','2017-12-12','1','2'
+=======
+  '40284753G','1','3','None','2017-12-12','1','1'
+>>>>>>> e0b044fed3ec36da225d06388e2308782aa3452e
   );
     INSERT INTO Player_Plays_Game(
       DNI, 
@@ -682,6 +686,7 @@ VALUES
   id_guest_team 
   )
   VALUES(
+<<<<<<< HEAD
   '40439219K','2','0','None','2017-12-12','2','1'
   );
   
@@ -757,3 +762,75 @@ VALUES
   VALUES(
   '98178946L','7','32','None','2020-1-22','6','5'
   ); 
+=======
+  '40284753G','1','3','None','2017-12-12','1','1'
+  );
+
+    /* sportman_works_for_team ---> DNI,team_code,contract_date, contract_expiry, salary*/
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('27345373Y', 3,'2015-10-12','2018-10-12', 1000);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40284753G', 1,'2014-7-12','2019-7-12', 420000);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('98178946L', 5,'2008-8-8','2012-8-8', 4101010);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('70525494L', 7,'2010-10-10','2018-10-9', 515632);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('87451551N', 4,'2001-2-12','2003-2-12', 6296);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', 2,'2000-1-1','2005-1-1', 3665151);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('42253641L', 6,'2010-12-12','2014-12-12', 515158);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40439219K', 8,'2019-6-10','2020-2-20', 5158844);
+
+
+/* Staff_Works_For_Team --->  DNI,team_code,contract_date, contract_expiry, salary */
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('45555141H', 5, '2018-8-12', '2019-6-20', 1200);
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('43511241J', 1, '2015-9-9', '2020-5-12', 1500);
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('55151543G', 3, '2019-3-12', '2022-2-22', 1100);
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('45256585C', 2, '2010-5-10', '2018-5-10', 900);
+insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry, salary) VALUES ('41524254B', 7, '2018-7-9', '2020-6-10', 800);
+
+ /* INJURIES ------------------------ */
+ INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("40284753G",
+"Torcedura de pene grado 2",
+"2020-02-01");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date,
+	Injury_Recovery_Date )
+VALUES ("40439219K",
+"Esguince de bello capilar",
+"2018-05-20",
+"2019-06-10");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("42253641L",
+"Ma hecho un esguince",
+"2020-12-1");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("98178946L",
+"Golpe por Arturo",
+"1997-01-01");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("87451551N",
+"Rompedura de A... por Pere",
+"2019-10-10");
+
+
+>>>>>>> e0b044fed3ec36da225d06388e2308782aa3452e
