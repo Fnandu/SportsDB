@@ -670,11 +670,7 @@ VALUES
   id_guest_team 
   )
   VALUES(
-<<<<<<< HEAD
-  '40284753G','2','3','None','2017-12-12','1','2'
-=======
   '40284753G','1','3','None','2017-12-12','1','1'
->>>>>>> e0b044fed3ec36da225d06388e2308782aa3452e
   );
     INSERT INTO Player_Plays_Game(
       DNI, 
@@ -686,7 +682,6 @@ VALUES
   id_guest_team 
   )
   VALUES(
-<<<<<<< HEAD
   '40439219K','2','0','None','2017-12-12','2','1'
   );
   
@@ -762,9 +757,6 @@ VALUES
   VALUES(
   '98178946L','7','32','None','2020-1-22','6','5'
   ); 
-=======
-  '40284753G','1','3','None','2017-12-12','1','1'
-  );
 
     /* sportman_works_for_team ---> DNI,team_code,contract_date, contract_expiry, salary*/
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('27345373Y', 3,'2015-10-12','2018-10-12', 1000);
@@ -772,7 +764,7 @@ insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expi
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('98178946L', 5,'2008-8-8','2012-8-8', 4101010);
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('70525494L', 7,'2010-10-10','2018-10-9', 515632);
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('87451551N', 4,'2001-2-12','2003-2-12', 6296);
-insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('', 2,'2000-1-1','2005-1-1', 3665151);
+insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40439219K', 2,'2000-1-1','2005-1-1', 3665151);
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('42253641L', 6,'2010-12-12','2014-12-12', 515158);
 insert into sportman_works_for_team(DNI, team_code, contract_date, contract_expiry, salary) VALUES ('40439219K', 8,'2019-6-10','2020-2-20', 5158844);
 
@@ -831,6 +823,3 @@ INSERT
 VALUES ("87451551N",
 "Rompedura de A... por Pere",
 "2019-10-10");
-
-
->>>>>>> e0b044fed3ec36da225d06388e2308782aa3452e
