@@ -1,4 +1,4 @@
-use SportDB;
+use sportdb;
 /*Create Inserts for all the new elements, such as games, fans and tournaments*/
 /*Person --> DNI, First Name, Last Name, Birth date, Gender, Country*/
 INSERT INTO Person (
@@ -529,7 +529,7 @@ values
 ) 
 values 
   (
-    '40439219K', 088, 15, 1,'Handball'
+    '40439219K', 088, 15, 1,'Football'
   );
 /* Tounament ---> id_tournament,tournament_name, country */
 insert into Tournament(tournament_name, discipline,country) 
@@ -550,14 +550,19 @@ values
   ('Worldcup', 'Football','CHN');
 insert into Tournament(tournament_name, discipline,country) 
 VALUES 
-  ("Liga Santander", "Football",'UGN');
+  ("Juegos Olimpicos", "Tennis",'BRA');
 insert into Tournament(tournament_name, discipline,country) 
 VALUES 
   ("Le Mans", "Racing",'GER');
 insert into Tournament(tournament_name, discipline,country) 
 VALUES 
   (
-    "Primera Division de Uruguay", "Football","CHN"
+    "Wimbeldon", "Tennis","GER"
+  );
+  insert into Tournament(tournament_name, discipline,country) 
+VALUES 
+  (
+    "Plaza de mi casa", "Petanca","CUB"
   );
   
 /* Fan -->  DNI,  contract_date, expiry_date  */
@@ -606,10 +611,55 @@ INSERT INTO Game(
    )
 VALUES 
   (
-    "2017-12-12", 2, 1, 1, 3, "Winner",  1, 0, "Loser"
+    "2017-12-12", 2, 1, 1, 3, "Winner", 2, 0, "Loser"
+  );
+
+INSERT INTO Game( 
+  date_match, 
+  id_stadium , 
+  id_tournament , 
+  id_local_team , 
+  local_score , 
+  local_result, 
+  id_guest_team , 
+  guest_score,
+  guest_result 
+   )
+VALUES 
+  (
+    "2018-4-27", 5, 8, 3, 5, "Winner", 4, 2, "Loser"
+  );
+  INSERT INTO Game( 
+  date_match, 
+  id_stadium , 
+  id_tournament , 
+  id_local_team , 
+  local_score , 
+  local_result, 
+  id_guest_team , 
+  guest_score,
+  guest_result 
+   )
+VALUES 
+  (
+    "2019-9-27", 4, 7, 7, 1, "Loser", 8, 6, "Winner"
+  );
+  INSERT INTO Game( 
+  date_match, 
+  id_stadium , 
+  id_tournament , 
+  id_local_team , 
+  local_score , 
+  local_result, 
+  id_guest_team , 
+  guest_score,
+  guest_result 
+   )
+VALUES 
+  (
+    "2020-1-22", 3, 5, 5, 86, "Winner", 6, 71, "Loser"
   );
 /*Player_Plays_Game --> (DNI,id_tournament,score,penalties,date_match,id_local_team,id_local_team,id_guest_team) */
-
   INSERT INTO Player_Plays_Game(
       DNI, 
   id_tournament , 
@@ -620,8 +670,7 @@ VALUES
   id_guest_team 
   )
   VALUES(
-  '40284753G','1','3','None','2017-12-12','1','1'
-<<<<<<< HEAD
+  '40284753G','2','3','None','2017-12-12','1','2'
   );
     INSERT INTO Player_Plays_Game(
       DNI, 
@@ -633,58 +682,78 @@ VALUES
   id_guest_team 
   )
   VALUES(
-  '40284753G','1','3','None','2017-12-12','1','1'
-  );
-=======
-
+  '40439219K','2','0','None','2017-12-12','2','1'
   );
   
- 
- /* INJURIES ------------------------ */
- INSERT
-	INTO
-	Injuries(DNI ,
-	Injury_Description ,
-	Injury_Date )
-VALUES ("40284753G",
-"Torcedura de pene grado 2",
-"2020-02-01");
-
-INSERT
-	INTO
-	Injuries(DNI ,
-	Injury_Description ,
-	Injury_Date,
-	Injury_Recovery_Date )
-VALUES ("40439219K",
-"Esguince de bello capilar",
-"2018-05-20",
-"2019-06-10");
-
-INSERT
-	INTO
-	Injuries(DNI ,
-	Injury_Description ,
-	Injury_Date )
-VALUES ("42253641L",
-"Ma hecho un esguince",
-"2020-12-1");
-
-INSERT
-	INTO
-	Injuries(DNI ,
-	Injury_Description ,
-	Injury_Date )
-VALUES ("98178946L",
-"Golpe por Arturo",
-"1997-01-01");
-
-INSERT
-	INTO
-	Injuries(DNI ,
-	Injury_Description ,
-	Injury_Date )
-VALUES ("87451551N",
-"Rompedura de A... por Pere",
-"2019-10-10");
->>>>>>> 350976b42083aa38e5531f5b58e76e14e5f367d3
+      INSERT INTO Player_Plays_Game(
+      DNI, 
+  id_tournament , 
+  score , 
+  penalties , 
+  date_match , 
+  id_local_team , 
+  id_guest_team 
+  )
+  VALUES(
+  '87451551N','8','4','None','2018-4-27','3','4'
+  );
+      INSERT INTO Player_Plays_Game(
+      DNI, 
+  id_tournament , 
+  score , 
+  penalties , 
+  date_match , 
+  id_local_team , 
+  id_guest_team 
+  )
+  VALUES(
+  '27345373Y','8','2','None','2018-4-27','4','3'
+  );
+        INSERT INTO Player_Plays_Game(
+      DNI, 
+  id_tournament , 
+  score , 
+  penalties , 
+  date_match , 
+  id_local_team , 
+  id_guest_team 
+  )
+  VALUES(
+  '70525494L','1','6','None','2019-9-27','7','8'
+  );
+        INSERT INTO Player_Plays_Game(
+      DNI, 
+  id_tournament , 
+  score , 
+  penalties , 
+  date_match , 
+  id_local_team , 
+  id_guest_team 
+  )
+  VALUES(
+  '40439219K','1','1','None','2019-9-27','8','7'
+  ); 
+          INSERT INTO Player_Plays_Game(
+      DNI, 
+  id_tournament , 
+  score , 
+  penalties , 
+  date_match , 
+  id_local_team , 
+  id_guest_team 
+  )
+  VALUES(
+  '70525494L','7','46','None','2020-1-22','5','6'
+  ); 
+          INSERT INTO Player_Plays_Game(
+      DNI, 
+  id_tournament , 
+  score , 
+  penalties , 
+  date_match , 
+  id_local_team , 
+  id_guest_team 
+  )
+  VALUES(
+  '98178946L','7','32','None','2020-1-22','6','5'
+  ); 
