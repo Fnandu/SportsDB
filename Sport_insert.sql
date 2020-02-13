@@ -1,4 +1,4 @@
-use sportdb;
+use SportDB;
 /*Create Inserts for all the new elements, such as games, fans and tournaments*/
 /*Person --> DNI, First Name, Last Name, Birth date, Gender, Country*/
 INSERT INTO Person (
@@ -621,6 +621,7 @@ VALUES
   )
   VALUES(
   '40284753G','1','3','None','2017-12-12','1','1'
+<<<<<<< HEAD
   );
     INSERT INTO Player_Plays_Game(
       DNI, 
@@ -634,3 +635,56 @@ VALUES
   VALUES(
   '40284753G','1','3','None','2017-12-12','1','1'
   );
+=======
+
+  );
+  
+ 
+ /* INJURIES ------------------------ */
+ INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("40284753G",
+"Torcedura de pene grado 2",
+"2020-02-01");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date,
+	Injury_Recovery_Date )
+VALUES ("40439219K",
+"Esguince de bello capilar",
+"2018-05-20",
+"2019-06-10");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("42253641L",
+"Ma hecho un esguince",
+"2020-12-1");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("98178946L",
+"Golpe por Arturo",
+"1997-01-01");
+
+INSERT
+	INTO
+	Injuries(DNI ,
+	Injury_Description ,
+	Injury_Date )
+VALUES ("87451551N",
+"Rompedura de A... por Pere",
+"2019-10-10");
+>>>>>>> 350976b42083aa38e5531f5b58e76e14e5f367d3
