@@ -443,33 +443,33 @@ values
   (
     '40439219K', 055, 2, 4,'Ping Pong'
   );
-/* Tounament ---> id_tournament,tournament_name */
-insert into Tournament(tournament_name, discipline) 
+/* Tounament ---> id_tournament,tournament_name, country */
+insert into Tournament(tournament_name, discipline,country) 
 values 
   (
-    'National_Championship', 'Basketball'
+    'National_Championship', 'Basketball', 'CHN'
   );
-insert into Tournament(tournament_name, discipline) 
+insert into Tournament(tournament_name, discipline,country) 
 values 
   (
-    'International_Championship', 'Football'
+    'International_Championship', 'Football', 'POR'
   );
-insert into Tournament(tournament_name, discipline) 
+insert into Tournament(tournament_name, discipline,country) 
 values 
-  ('Eurocup', 'Football');
-insert into Tournament(tournament_name, discipline) 
+  ('Eurocup', 'Football','ESP');
+insert into Tournament(tournament_name, discipline,country) 
 values 
-  ('Worldcup', 'Football');
-  INSERT INTO Tournament(tournament_name, discipline) 
+  ('Worldcup', 'Football','CHN');
+insert into Tournament(tournament_name, discipline,country) 
 VALUES 
-  ("Liga Santander", "Football");
-INSERT INTO Tournament(tournament_name, discipline) 
+  ("Liga Santander", "Football",'UGN');
+insert into Tournament(tournament_name, discipline,country) 
 VALUES 
-  ("Le Mans", "Racing");
-INSERT INTO Tournament(tournament_name, discipline) 
+  ("Le Mans", "Racing",'GER');
+insert into Tournament(tournament_name, discipline,country) 
 VALUES 
   (
-    "Primera Division de Uruguay", "Football"
+    "Primera Division de Uruguay", "Football","CHN"
   );
   
 /* Fan -->  DNI,  contract_date, expiry_date  */

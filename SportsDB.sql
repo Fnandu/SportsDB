@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS Tournament (
   id_tournament INT AUTO_INCREMENT, 
   tournament_name VARCHAR(30), 
   discipline VARCHAR(30) NOT NULL, 
+  country varchar(3) not null,
   PRIMARY KEY(id_tournament)
 );
 CREATE TABLE IF NOT EXISTS Stadium (
