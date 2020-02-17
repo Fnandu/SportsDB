@@ -670,7 +670,7 @@ VALUES
   id_guest_team 
   )
   VALUES(
-  '40284753G','1','3','None','2017-12-12','1','1'
+  '40284753G','1','3','None','2017-12-12','1','2'
   );
     INSERT INTO Player_Plays_Game(
       DNI, 
