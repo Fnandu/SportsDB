@@ -659,6 +659,22 @@ VALUES
   (
     "2020-1-22", 3, 5, 5, 86, "Winner", 6, 71, "Loser"
   );
+  
+INSERT INTO Game( 
+  date_match, 
+  id_stadium , 
+  id_tournament , 
+  id_local_team , 
+  local_score , 
+  local_result, 
+  id_guest_team , 
+  guest_score,
+  guest_result 
+   )
+VALUES 
+  (
+    "2019-8-15", 5, 8, 3, 5, "Tied", 4, 5, "Tied"
+  );
 /*Player_Plays_Game --> (DNI,id_tournament,score,penalties,date_match,id_local_team,id_local_team,id_guest_team) */
   INSERT INTO Player_Plays_Game(
       DNI, 
@@ -793,7 +809,7 @@ INSERT
 	Injury_Date,
 	Injury_Recovery_Date )
 VALUES ("40439219K",
-"Esguince de bello capilar",
+"Esguince de vello capilar",
 "2018-05-20",
 "2019-06-10");
 
