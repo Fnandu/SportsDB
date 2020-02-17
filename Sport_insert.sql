@@ -823,3 +823,101 @@ INSERT
 VALUES ("87451551N",
 "Rompedura de A... por Pere",
 "2019-10-10");
+
+
+/*Fan_Supports_Team ---> team_code, dni*/
+INSERT
+	INTO
+	Fan_Supports_Team(team_code,DNI
+	)
+VALUES (1,
+"40284753G");
+INSERT
+	INTO
+	Fan_Supports_Team(team_code,DNI
+	)
+VALUES (3,
+"94997345P");
+INSERT
+	INTO
+	Fan_Supports_Team(team_code,DNI
+	)
+VALUES (5,
+"29063878C");
+INSERT
+	INTO
+	Fan_Supports_Team(team_code,DNI
+	)
+VALUES (7,
+"99974031T");
+INSERT
+	INTO
+	Fan_Supports_Team(team_code,DNI
+	)
+VALUES (8,
+"28514849R");
+
+/* Fan_Attends_Game ---> DNI, id_tournament, date_match, id_local_team, id_guest_team */
+
+INSERT
+	INTO
+	Fan_Attends_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("40284753G",1,"2017-12-12",1,1
+);
+INSERT
+	INTO
+	Fan_Attends_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("94997345P",8,"2018-04-27",3,4
+);
+INSERT
+	INTO
+	Fan_Attends_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("29063878C",7,"2020-01-22",5,6
+);
+INSERT
+	INTO
+	Fan_Attends_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("99974031T",1,"2019-09-27",7,8
+);
+INSERT
+	INTO
+	Fan_Attends_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("28514849R",1,"2019-09-27",7,8
+);
+
+/* Staff_Works_Game ---> DNI ,id_tournament ,date_match ,id_local_team ,id_guest_team */
+INSERT
+	INTO
+	Staff_Works_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("45555141H",1,"2017-12-12",1,1
+);
+INSERT
+	INTO
+	Staff_Works_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("94997345P",8,"2018-04-27",3,4
+);
+INSERT
+	INTO
+	Staff_Works_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("79564862I",7,"2020-01-22",5,6
+);
+INSERT
+	INTO
+	Staff_Works_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("49865742P",1,"2019-09-27",7,8
+);
+INSERT
+	INTO
+	Staff_Works_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
+	)
+VALUES ("43511241J",1,"2019-09-27",7,8
+);

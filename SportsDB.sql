@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS Game (
 );
 CREATE TABLE IF NOT EXISTS Fan_Attends_Game (
   DNI CHAR(9), 
-  id_tournament INT NOT NULL UNIQUE, 
+  id_tournament INT, 
   date_match DATE, 
   id_local_team INT, 
   id_guest_team INT, 
