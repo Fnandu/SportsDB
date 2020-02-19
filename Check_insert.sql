@@ -139,4 +139,3 @@ left join Fan_Attends_Game fa on fa.date_match = g.date_match AND
                                  fa.id_guest_team = g.id_guest_team
 order by count(dni) desc
 ;
-select count(*) from Game ;

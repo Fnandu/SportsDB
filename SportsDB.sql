@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS Game (
   id_stadium INT, 
   
   /*This has to be updated into a comparative auto increment where as it creates unique a counter*/
-  id_tournament INT NOT NULL UNIQUE, 
+  id_tournament INT , 
   id_local_team INT, 
   local_result ENUM(
     'Winner', 'Loser', 'Tied', 'Other'
