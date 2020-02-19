@@ -154,4 +154,3 @@ salary BIGINT,
 foreign key (DNI) references Sportman(DNI),
 foreign key (team_code) references Team(team_code)
 );
-
