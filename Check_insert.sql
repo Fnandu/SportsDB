@@ -6,7 +6,6 @@ CASE
 	when  staff.discipline is not null then staff.discipline
     else sportman.discipline
 END AS Discipline
-
 , staff.job, sportman.team_code, 
 CASE
  WHEN fan.dni is not null then fan.expiry_date
@@ -93,7 +92,6 @@ left join Player_Plays_Game pg on pg.dni = s.dni
 left join Tournament t on t.id_tournament = pg.id_tournament
 where Person.country != t.country
 group by first_name , last_name;
-select * from tournament;
 
 /*14 Por tipo de persona, listar la que más gana y obtener la siguiente información */
 select 
