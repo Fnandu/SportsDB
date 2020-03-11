@@ -11,8 +11,7 @@ CREATE TABLE IF NOT EXISTS Person (
   PRIMARY KEY(dni)
 );
 CREATE TABLE IF NOT EXISTS Staff (
-  DNI CHAR(9), 
-  discipline VARCHAR(30), 
+  DNI CHAR(9),
   job enum(
     'Medical', 'Mechanic', 'Trainer', 
     'Physiotherapist', 'Security', 'Referee', 
@@ -20,6 +19,12 @@ CREATE TABLE IF NOT EXISTS Staff (
     'Ball Boy/Gal/They'
   ), 
   foreign key (DNI) REFERENCES Person(DNI)
+);
+
+CREATE TABLE IF NOT EXISTS Discipline (
+	id_discipline INT AUTO_INCREMENT,
+    name_discipline VARCHAR(30),
+	PRIMARY KEY(id_discipline)
 );
 CREATE TABLE IF NOT EXISTS Fan (
   DNI CHAR(9), 
@@ -29,10 +34,11 @@ CREATE TABLE IF NOT EXISTS Fan (
 );
 CREATE TABLE IF NOT EXISTS Tournament (
   id_tournament INT AUTO_INCREMENT, 
+  id_discipline INT,
   tournament_name VARCHAR(30), 
-  discipline VARCHAR(30) NOT NULL, 
   country varchar(3) not null,
-  PRIMARY KEY(id_tournament)
+  PRIMARY KEY (id_tournament),
+  FOREIGN KEY (id_discipline) REFERENCES Discipline (id_discipline)
 );
 CREATE TABLE IF NOT EXISTS Stadium (
   id_stadium INT AUTO_INCREMENT, 
@@ -41,13 +47,23 @@ CREATE TABLE IF NOT EXISTS Stadium (
   location VARCHAR(30), 
   PRIMARY KEY(id_stadium)
 );
+
+CREATE TABLE IF NOT EXISTS Club(
+	club_code INT AUTO_INCREMENT,
+    club_name VARCHAR(30),
+    PRIMARY KEY(club_code)
+);
+
 CREATE TABLE IF NOT EXISTS Team (
   team_code INT AUTO_INCREMENT, 
+  club_code INT,
+  id_discipline INT,
   team_name VARCHAR(50) NOT NULL, 
-  discipline VARCHAR(30) NOT NULL, 
   number_players INT NOT NULL, 
   trainer_DNI CHAR(9), 
   PRIMARY KEY (team_code), 
+  FOREIGN KEY (club_code) REFERENCES Club(club_code),
+  FOREIGN KEY (id_discipline) REFERENCES Discipline (id_discipline),
   FOREIGN KEY (trainer_DNI) REFERENCES Staff(DNI)
 );
 CREATE TABLE IF NOT EXISTS Fan_Supports_Team (
@@ -58,13 +74,13 @@ CREATE TABLE IF NOT EXISTS Fan_Supports_Team (
 );
 CREATE TABLE IF NOT EXISTS Sportman (
   DNI CHAR(9), 
-  discipline VARCHAR(20), 
-  player_number INT, 
-  score INT, 
+  player_number INT DEFAULT 0,
+  score INT DEFAULT 0, 
   team_code INT, 
-  CONSTRAINT Comp_Sportman_Key PRIMARY KEY (DNI,discipline) ,
+  id_discipline INT,
   FOREIGN KEY (DNI) REFERENCES Person (DNI), 
-  FOREIGN KEY (team_code) REFERENCES Team (team_code)
+  FOREIGN KEY (team_code) REFERENCES Team (team_code),
+  FOREIGN KEY (id_discipline) REFERENCES Discipline (id_discipline)
 );
 CREATE TABLE IF NOT EXISTS Game (
   date_match DATE, 
