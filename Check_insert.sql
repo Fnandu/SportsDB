@@ -1,4 +1,5 @@
 use sportdb;
+select ifnull(last_name,'Si','No') as nombre from person ;
 
 /*1 Consultar datos básicos de personas*/
 SELECT person.dni, first_name, last_name, birth_date,gender,country,
@@ -42,10 +43,7 @@ end
 ;
 
 /*4 Consultar cuantos jugadores hay por deporte */
-select discipline, count(case when person.gender='Male' then 'Male' ELSE NULL END) as male, 
-count(case when person.gender='Female' then 'Female' ELSE NULL END) as female from sportman 
-left join person on person.dni = sportman.dni  
-group by discipline;
+select discipline, count(case when person.gender='Male' then 'Male' ELSE NULL END) as male, count(case when person.gender='Female' then 'Female' ELSE NULL END) as female from sportman left join person on person.dni = sportman.dni  group by discipline;
 
 /*5 Consultar máximo goleador/punteador por deporte */
 select sportman.dni, person.first_name, discipline, max(score) from sportman left join person on person.dni = sportman.dni group by discipline;
