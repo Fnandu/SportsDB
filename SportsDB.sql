@@ -10,22 +10,24 @@ CREATE TABLE IF NOT EXISTS Person (
   country VARCHAR(20) NOT NULL, 
   PRIMARY KEY(dni)
 );
+CREATE TABLE IF NOT EXISTS Discipline (
+	id_discipline INT AUTO_INCREMENT,
+    name_discipline VARCHAR(30),
+	PRIMARY KEY(id_discipline)
+);
 CREATE TABLE IF NOT EXISTS Staff (
   DNI CHAR(9),
+  id_discipline int,
   job enum(
     'Medical', 'Mechanic', 'Trainer', 
     'Physiotherapist', 'Security', 'Referee', 
     'Commentator', 'Ticket Booth Manager', 
     'Ball Boy/Gal/They'
   ), 
-  foreign key (DNI) REFERENCES Person(DNI)
+  foreign key (DNI) REFERENCES Person(DNI),
+  foreign key(id_discipline) references Discipline(id_discipline)
 );
 
-CREATE TABLE IF NOT EXISTS Discipline (
-	id_discipline INT AUTO_INCREMENT,
-    name_discipline VARCHAR(30),
-	PRIMARY KEY(id_discipline)
-);
 CREATE TABLE IF NOT EXISTS Fan (
   DNI CHAR(9), 
   contract_date DATE,
