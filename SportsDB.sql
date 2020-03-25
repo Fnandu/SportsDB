@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS fan
   ( 
      dni           CHAR(9), 
      contract_date DATE NOT NULL, 
-     expiry_date   DATE DEFAULT '1/1/1', 
+	 expiry_date   DATE NOT NULL,
      FOREIGN KEY (dni) REFERENCES person(dni) 
   ); 
 
