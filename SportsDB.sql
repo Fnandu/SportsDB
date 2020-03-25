@@ -158,7 +158,6 @@ CREATE TABLE IF NOT EXISTS injuries
      dni                  CHAR(9) NOT NULL, 
      injury_description   LONGTEXT NOT NULL, 
      injury_date          DATE NOT NULL, 
-     injury_recovery_date DATE DEFAULT '1/1/1', 
      PRIMARY KEY (injury_id),
      FOREIGN KEY (DNI) REFERENCES sportman(dni) 
   ); 
