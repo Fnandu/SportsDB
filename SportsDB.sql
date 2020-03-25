@@ -158,7 +158,8 @@ CREATE TABLE IF NOT EXISTS injuries
      injury_description   LONGTEXT NOT NULL, 
      injury_date          DATE NOT NULL, 
      injury_recovery_date DATE DEFAULT '1/1/1', 
-     FOREIGN KEY (dni) REFERENCES sportman(dni) 
+     PRIMARY KEY (DNI,injury_date),
+     FOREIGN KEY (DNI) REFERENCES sportman(dni) 
   ); 
 
 CREATE TABLE IF NOT EXISTS staff_works_game 
