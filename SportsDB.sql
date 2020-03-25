@@ -154,14 +154,20 @@ CREATE TABLE IF NOT EXISTS player_plays_game
 
 CREATE TABLE IF NOT EXISTS injuries 
   ( 
+	injury_id int auto_increment,
      dni                  CHAR(9) NOT NULL, 
      injury_description   LONGTEXT NOT NULL, 
      injury_date          DATE NOT NULL, 
      injury_recovery_date DATE DEFAULT '1/1/1', 
-     PRIMARY KEY (DNI,injury_date),
+     PRIMARY KEY (injury_id),
      FOREIGN KEY (DNI) REFERENCES sportman(dni) 
   ); 
-
+CREATE TABLE IF NOT EXISTS injury_recovery
+(
+	injury_id int NOT NULL,
+	injury_recovery_date DATE NOT NULL, 
+	FOREIGN KEY (injury_id) REFERENCES injuries(injury_id) 
+);
 CREATE TABLE IF NOT EXISTS staff_works_game 
   ( 
      dni           CHAR(9) NOT NULL, 
