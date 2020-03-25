@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS person
      first_name VARCHAR(20) NOT NULL, 
      last_name  VARCHAR(30) NOT NULL, 
      birth_date DATE NOT NULL, 
-     gender     VARCHAR(50) DEFAULT 'undefined', 
+     gender     VARCHAR(50) NOT NULL, 
      country    VARCHAR(20) NOT NULL, 
      PRIMARY KEY(dni) 
   ); 
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS person
 CREATE TABLE IF NOT EXISTS discipline 
   ( 
      id_discipline   INT auto_increment, 
-     name_discipline VARCHAR(30), 
+     name_discipline VARCHAR(30) NOT NULL, 
      PRIMARY KEY(id_discipline) 
   ); 
 
@@ -27,8 +27,7 @@ CREATE TABLE IF NOT EXISTS staff
      dni           CHAR(9), 
      id_discipline INT NOT NULL, 
      job           ENUM('Medical', 'Mechanic', 'Trainer', 'Physiotherapist', 
-     'Security', 
-     'Referee', 
+     'Security', 'Referee', 
      'Commentator', 'Ticket Booth Manager', 'Ball Boy/Gal/They') NOT NULL, 
      FOREIGN KEY (dni) REFERENCES person(dni), 
      FOREIGN KEY(id_discipline) REFERENCES discipline(id_discipline) 
@@ -94,7 +93,6 @@ CREATE TABLE IF NOT EXISTS sportman
   ( 
      dni           CHAR(9) NOT NULL, 
      player_number INT DEFAULT 0 NOT NULL, 
-     score         INT DEFAULT 0 NOT NULL, 
      team_code     INT NOT NULL, 
      id_discipline INT NOT NULL, 
      FOREIGN KEY (dni) REFERENCES person (dni), 
@@ -104,8 +102,8 @@ CREATE TABLE IF NOT EXISTS sportman
 
 CREATE TABLE IF NOT EXISTS game 
   ( 
-     date_match    DATE, 
-     id_game       INT auto_increment NOT NULL, 
+     id_game       INT auto_increment, 
+     date_match    DATE NOT NULL, 
      id_stadium    INT NOT NULL, 
      id_tournament INT NOT NULL, 
      id_local_team INT NOT NULL, 
@@ -115,7 +113,7 @@ CREATE TABLE IF NOT EXISTS game
      guest_result  ENUM('Winner', 'Loser', 'Tied', 'Other') NOT NULL, 
      guest_score   VARCHAR(30) NOT NULL, 
      INDEX (date_match), 
-     PRIMARY KEY (id_game, id_tournament), 
+     PRIMARY KEY (id_game), 
      FOREIGN KEY (id_local_team) REFERENCES team (team_code), 
      FOREIGN KEY (id_guest_team) REFERENCES team (team_code), 
      FOREIGN KEY (id_tournament) REFERENCES tournament (id_tournament), 
@@ -154,7 +152,7 @@ CREATE TABLE IF NOT EXISTS player_plays_game
 
 CREATE TABLE IF NOT EXISTS injuries 
   ( 
-	injury_id int auto_increment,
+	 injury_id 			  INT auto_increment,
      dni                  CHAR(9) NOT NULL, 
      injury_description   LONGTEXT NOT NULL, 
      injury_date          DATE NOT NULL, 
@@ -163,9 +161,9 @@ CREATE TABLE IF NOT EXISTS injuries
   ); 
 CREATE TABLE IF NOT EXISTS injury_recovery
 (
-	injury_id int NOT NULL,
-	injury_recovery_date DATE NOT NULL, 
-	FOREIGN KEY (injury_id) REFERENCES injuries(injury_id) 
+	 injury_id 				int NOT NULL,
+	 injury_recovery_date 	DATE NOT NULL, 
+	 FOREIGN KEY (injury_id) REFERENCES injuries(injury_id) 
 );
 CREATE TABLE IF NOT EXISTS staff_works_game 
   ( 
