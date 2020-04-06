@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS person
      gender     VARCHAR(50) NOT NULL, 
      country    VARCHAR(20) NOT NULL, 
      PRIMARY KEY(dni) 
-  ); 
+  );
 
 CREATE TABLE IF NOT EXISTS discipline 
   ( 
