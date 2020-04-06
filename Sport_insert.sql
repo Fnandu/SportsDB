@@ -454,112 +454,100 @@ values
 /* Sportman ---> dni,player_number,score,team_code */
 insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '40284753G', 3, 0, 1 ,1
+    '40284753G', 3, 1 ,1
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '40284753G', 1, 20, 1 , 2
+    '40284753G', 1, 1 , 2
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '87451551N', 069, 12, 3, 4
+    '87451551N', 069, 3, 4
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '45464584U', 058, 40, 2, 4
+    '45464584U', 058, 2, 4
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '08208287R', 096, 3, 4, 3
+    '08208287R', 096, 4, 3
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '27345373Y', 558, 9, 2, 5
+    '27345373Y', 558, 2, 5
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '70525494L', 099, 2, 4, 3
+    '70525494L', 099, 4, 3
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '98178946L', 10, 8, 5, 2
+    '98178946L', 10, 5, 2
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '42253641L', 4, 4, 6, 2
+    '42253641L', 4, 6, 2
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '40439219K', 102, 5, 4, 3
+    '40439219K', 102, 4, 3
   );
   insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '40439219K', 055, 2, 4, 5
+    '40439219K', 055, 4, 5
   );
   
     insert into Sportman (
 	DNI,
-  player_number, 
-  score, team_code, id_discipline
+  player_number, team_code, id_discipline
 ) 
 values 
   (
-    '40439219K', 088, 15, 1, 1
+    '40439219K', 088, 1, 1
   );
 /* Tounament ---> id_tournament,tournament_name, country */
 insert into Tournament(tournament_name, id_discipline, country) 
@@ -829,19 +817,17 @@ insert into Staff_Works_For_Team (DNI, team_code, contract_date, contract_expiry
 	Injury_Description ,
 	Injury_Date )
 VALUES ("40284753G",
-"Torcedura de pene grado 2",
+"Esguince de tobillo",
 "2020-02-01");
 
 INSERT
 	INTO
 	Injuries(DNI ,
 	Injury_Description ,
-	Injury_Date,
-	Injury_Recovery_Date )
+	Injury_Date)
 VALUES ("40439219K",
-"Esguince de vello capilar",
-"2018-05-20",
-"2019-06-10");
+"Rotura de meñisco",
+"2018-05-20");
 
 INSERT
 	INTO
@@ -849,7 +835,7 @@ INSERT
 	Injury_Description ,
 	Injury_Date )
 VALUES ("42253641L",
-"Ma hecho un esguince",
+"Tendinitis aquilea",
 "2020-12-1");
 
 INSERT
@@ -867,10 +853,14 @@ INSERT
 	Injury_Description ,
 	Injury_Date )
 VALUES ("87451551N",
-"Rompedura de A... por Pere",
+"Osteopatia de pubis",
 "2019-10-10");
 
-
+/*Injury_revocery*/
+insert into injury_recovery(injury_id,injury_recovery_date) values(1,"2020-02-20");
+insert into injury_recovery(injury_id,injury_recovery_date) values(2,"2019-03-03");
+insert into injury_recovery(injury_id,injury_recovery_date) values(4,"2017-01-01");
+insert into injury_recovery(injury_id,injury_recovery_date) values(1,"2020-03-31");
 /*Fan_Supports_Team ---> team_code, dni*/
 INSERT
 	INTO
