@@ -138,3 +138,41 @@ left join Fan_Attends_Game fa on fa.date_match = g.date_match AND
                                  fa.id_guest_team = g.id_guest_team
 order by count(dni) desc
 ;
+/* Listar numero de partidos jugados*/
+select team_name,(select count(*) from game g where g.id_local_team = t.team_code group by id_local_team) as 'Como local',(select count(*) from game g where g.id_guest_team = t.team_code group by id_guest_team)as 'Como visitante' from team t;
+    /*Listar numero de años jugados por cada jugador			
+Nombre	Años jugados		
+Diego Armando Mara Dona	33		
+Julian Jackson 	12	*/
+select concat(first_name," ",last_name) as 'Nombre',
+(select year(pg.date_match) from game left join player_plays_game pg on pg.date_match = g.date_match AND
+								 pg.id_local_team = g.id_local_team AND
+                                 pg.id_guest_team = g.id_guest_team
+                                 
+                                 group by dni
+                                 )
+ as 'Años jugados' from person p
+left join sportman s on s.dni = p.dni
+group by concat(first_name," ",last_name);
+        /*Calcular fechas encuentros por equipo			
+Equipo	Fecha anterior partido	Fecha proximo partido	Gano ultimo partido
+Betis	12/06/2020	12/09/2020	Si
+Mallorca CF	07/07/2020	07/10/2020	Si
+Los Angeles Lakers	30/09/2020	30/09/2020	No
+Ferrari	22/05/2020	22/07/2020	Si
+...	...	...	...
+			
+Calcular por intervalo de salario cuantas personas lo ganan (establecer 4 o 5 intervalos)			
+Salario desde	Salario hasta	Personas	
+0	30000	23231233	
+30000	50000	234233	
+50000	100000	22342	
+100000	100000000	2323	
+			
+Calcular por intervalo cuantos partidos han ganado x partidos  (establecer 4 o 5 intervalos)			
+Partidos ganados desde	Partidos ganados hasta	Equipos	
+0	100	23231233	
+100	500	234233	
+500	1000	22342	
+1000	100000000	2323	
+*/
