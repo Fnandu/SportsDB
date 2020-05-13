@@ -2,6 +2,18 @@
 
 /*Query ID from maximum score player-Date from next game -- Fernando*/
 
+DELIMITER //
+
+CREATE PROCEDURE MaxPuntuation(Sport int)
+BEGIN
+declare NameSport int;
+set NameSport = Sport;
+
+Select max(score) from sportman where id_discipline = NameSport;
+END //
+
+Delimiter ;
+call MaxPuntuation(1);
 /*Update team data-sportsman data -- Pablo*/
 
 /*Remove team-sportsman -- Pau*/
@@ -14,7 +26,7 @@ set _DNI   = DNI;
 
 delete from sportman where dni = _DNI ;
 
-END$$
+END
 
 DELIMITER ;
 
