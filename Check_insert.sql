@@ -145,10 +145,10 @@ Nombre	Años jugados
 Diego Armando Mara Dona	33		
 Julian Jackson 	12	*/
 select concat(first_name," ",last_name) as 'Nombre',
-(select year(pg.date_match) from game left join player_plays_game pg on pg.date_match = g.date_match AND
+(select count(*) from game g left join player_plays_game pg on pg.date_match = g.date_match AND
 								 pg.id_local_team = g.id_local_team AND
                                  pg.id_guest_team = g.id_guest_team
-                                 
+                                 where year() = year()
                                  group by dni
                                  )
  as 'Años jugados' from person p
