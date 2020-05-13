@@ -704,7 +704,7 @@ VALUES
   id_guest_team 
   )
   VALUES(
-  '40284753G','1','3','None','2017-12-12','1','2'
+  '40284753G','1','3','None','2021-12-12','1','2'
   );
     INSERT INTO Player_Plays_Game(
       DNI, 
@@ -716,7 +716,7 @@ VALUES
   id_guest_team 
   )
   VALUES(
-  '40439219K','2','0','None','2017-12-12','2','1'
+  '40439219K','2','0','None','2021-12-12','2','1'
   );
   
       INSERT INTO Player_Plays_Game(
@@ -899,7 +899,7 @@ INSERT
 	INTO
 	Fan_Attends_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
 	)
-VALUES ("40284753G",1,"2017-12-12",1,1
+VALUES ("40284753G",1,"2021-12-12",1,1
 );
 INSERT
 	INTO
@@ -931,7 +931,7 @@ INSERT
 	INTO
 	Staff_Works_Game(DNI, id_tournament, date_match, id_local_team, id_guest_team
 	)
-VALUES ("45555141H",1,"2017-12-12",1,1
+VALUES ("45555141H",1,"2021-12-12",1,1
 );
 INSERT
 	INTO
