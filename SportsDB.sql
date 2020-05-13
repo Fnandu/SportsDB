@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS person
      country    VARCHAR(20) NOT NULL, 
      PRIMARY KEY(dni) 
   );
-
+select* from person;
 CREATE TABLE IF NOT EXISTS discipline 
   ( 
      id_discipline   INT auto_increment, 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS team
      FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline) ON DELETE CASCADE, 
      FOREIGN KEY (trainer_dni) REFERENCES staff(dni) ON DELETE CASCADE
   ); 
-
+SELECT* FROM team;
 CREATE TABLE IF NOT EXISTS fan_supports_team 
   ( 
      team_code INT NOT NULL, 

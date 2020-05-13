@@ -24,7 +24,24 @@ DELIMITER ;
 
 call UpdateTeam(1, 'Betis_FC');
 select* from team;
+
 drop procedure if exists UpdateTeam;
+
+/*update person data-person data -- Pablo */
+DELIMITER //
+CREATE PROCEDURE UpdatePerson(IN a_dni char(9),IN a_first_name VARCHAR(20))
+BEGIN
+	UPDATE person SET dni = a_dni where first_name = a_first_name;
+END //
+
+DELIMITER ;
+
+call UpdatePerson('08208287R','Veronica');
+
+
+select* from person;
+
+drop procedure if exists UpdatePerson;
 
 /*Remove team-sportsman -- Pau*/
 DELIMITER //
