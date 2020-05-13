@@ -9,12 +9,12 @@ DELIMITER //
 
 CREATE PROCEDURE RemoveSportman(DNI varchar(9))
 BEGIN
-declare _DNI varchar(254);
+declare _DNI varchar(9);
 set _DNI   = DNI;
 
-delete from sportman where dni = _DNI ;
+delete from person where dni = _DNI ;
 
-END$$
+END//
 
 DELIMITER ;
 
@@ -27,7 +27,7 @@ set _team_code   = DNI;
 
 delete from team where team_code = _DNI ;
 
-END$$
+END//
 
 DELIMITER ;+
 
