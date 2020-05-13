@@ -29,8 +29,8 @@ CREATE TABLE IF NOT EXISTS staff
      job           ENUM('Medical', 'Mechanic', 'Trainer', 'Physiotherapist', 
      'Security', 'Referee', 
      'Commentator', 'Ticket Booth Manager', 'Ball Boy/Gal/They') NOT NULL, 
-     FOREIGN KEY (dni) REFERENCES person(dni), 
-     FOREIGN KEY(id_discipline) REFERENCES discipline(id_discipline) 
+     FOREIGN KEY (dni) REFERENCES person(dni) ON DELETE CASCADE, 
+     FOREIGN KEY(id_discipline) REFERENCES discipline(id_discipline)  ON DELETE CASCADE
   ); 
 
 CREATE TABLE IF NOT EXISTS fan 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS fan
      dni           CHAR(9), 
      contract_date DATE NOT NULL, 
 	 expiry_date   DATE NOT NULL,
-     FOREIGN KEY (dni) REFERENCES person(dni) 
+     FOREIGN KEY (dni) REFERENCES person(dni) ON DELETE CASCADE
   ); 
 
 CREATE TABLE IF NOT EXISTS tournament 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS tournament
      tournament_name VARCHAR(30) NOT NULL, 
      country         VARCHAR(3) NOT NULL, 
      PRIMARY KEY (id_tournament), 
-     FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline) 
+     FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline)  ON DELETE CASCADE
   ); 
 
 CREATE TABLE IF NOT EXISTS stadium 
@@ -76,17 +76,17 @@ CREATE TABLE IF NOT EXISTS team
      number_players INT NOT NULL, 
      trainer_dni    CHAR(9) NOT NULL, 
      PRIMARY KEY (team_code), 
-     FOREIGN KEY (club_code) REFERENCES club(club_code), 
-     FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline), 
-     FOREIGN KEY (trainer_dni) REFERENCES staff(dni) 
+     FOREIGN KEY (club_code) REFERENCES club(club_code) ON DELETE CASCADE, 
+     FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline) ON DELETE CASCADE, 
+     FOREIGN KEY (trainer_dni) REFERENCES staff(dni) ON DELETE CASCADE
   ); 
 
 CREATE TABLE IF NOT EXISTS fan_supports_team 
   ( 
      team_code INT NOT NULL, 
      dni       CHAR(9) NOT NULL, 
-     FOREIGN KEY (team_code) REFERENCES team(team_code), 
-     FOREIGN KEY (dni) REFERENCES fan(dni) 
+     FOREIGN KEY (team_code) REFERENCES team(team_code) ON DELETE CASCADE, 
+     FOREIGN KEY (dni) REFERENCES fan(dni) ON DELETE CASCADE
   ); 
 
 CREATE TABLE IF NOT EXISTS sportman 
@@ -96,9 +96,9 @@ CREATE TABLE IF NOT EXISTS sportman
      team_code     INT NOT NULL, 
      id_discipline INT NOT NULL, 
 	 score         INT DEFAULT 0, 
-     FOREIGN KEY (dni) REFERENCES person (dni), 
-     FOREIGN KEY (team_code) REFERENCES team (team_code), 
-     FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline) 
+     FOREIGN KEY (dni) REFERENCES person (dni) ON DELETE CASCADE, 
+     FOREIGN KEY (team_code) REFERENCES team (team_code) ON DELETE CASCADE, 
+     FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline)  ON DELETE CASCADE
   ); 
 
 CREATE TABLE IF NOT EXISTS game 
@@ -115,10 +115,10 @@ CREATE TABLE IF NOT EXISTS game
      guest_score   VARCHAR(30) NOT NULL, 
      INDEX (date_match), 
      PRIMARY KEY (id_game), 
-     FOREIGN KEY (id_local_team) REFERENCES team (team_code), 
-     FOREIGN KEY (id_guest_team) REFERENCES team (team_code), 
-     FOREIGN KEY (id_tournament) REFERENCES tournament (id_tournament), 
-     FOREIGN KEY (id_stadium) REFERENCES stadium (id_stadium) 
+     FOREIGN KEY (id_local_team) REFERENCES team (team_code) ON DELETE CASCADE, 
+     FOREIGN KEY (id_guest_team) REFERENCES team (team_code) ON DELETE CASCADE, 
+     FOREIGN KEY (id_tournament) REFERENCES tournament (id_tournament) ON DELETE CASCADE, 
+     FOREIGN KEY (id_stadium) REFERENCES stadium (id_stadium) ON DELETE CASCADE 
   ); 
 
 CREATE TABLE IF NOT EXISTS fan_attends_game 
@@ -128,11 +128,11 @@ CREATE TABLE IF NOT EXISTS fan_attends_game
      date_match    DATE NOT NULL, 
      id_local_team INT NOT NULL, 
      id_guest_team INT NOT NULL, 
-     FOREIGN KEY (dni) REFERENCES fan (dni), 
-     FOREIGN KEY (date_match) REFERENCES game (date_match), 
-     FOREIGN KEY (id_tournament) REFERENCES game (id_tournament), 
-     FOREIGN KEY (id_local_team) REFERENCES team (team_code), 
-     FOREIGN KEY (id_guest_team) REFERENCES team (team_code) 
+     FOREIGN KEY (dni) REFERENCES fan (dni) ON DELETE CASCADE, 
+     FOREIGN KEY (date_match) REFERENCES game (date_match) ON DELETE CASCADE, 
+     FOREIGN KEY (id_tournament) REFERENCES game (id_tournament) ON DELETE CASCADE, 
+     FOREIGN KEY (id_local_team) REFERENCES team (team_code) ON DELETE CASCADE, 
+     FOREIGN KEY (id_guest_team) REFERENCES team (team_code) ON DELETE CASCADE 
   ); 
 
 CREATE TABLE IF NOT EXISTS player_plays_game 
@@ -144,11 +144,11 @@ CREATE TABLE IF NOT EXISTS player_plays_game
      date_match    DATE NOT NULL, 
      id_local_team INT NOT NULL, 
      id_guest_team INT NOT NULL, 
-     FOREIGN KEY (dni) REFERENCES sportman (dni), 
-     FOREIGN KEY (id_tournament) REFERENCES tournament (id_tournament), 
-     FOREIGN KEY (date_match) REFERENCES game (date_match), 
-     FOREIGN KEY (id_local_team) REFERENCES team (team_code), 
-     FOREIGN KEY (id_guest_team) REFERENCES team (team_code) 
+     FOREIGN KEY (dni) REFERENCES sportman (dni) ON DELETE CASCADE, 
+     FOREIGN KEY (id_tournament) REFERENCES tournament (id_tournament) ON DELETE CASCADE, 
+     FOREIGN KEY (date_match) REFERENCES game (date_match) ON DELETE CASCADE, 
+     FOREIGN KEY (id_local_team) REFERENCES team (team_code) ON DELETE CASCADE, 
+     FOREIGN KEY (id_guest_team) REFERENCES team (team_code)  ON DELETE CASCADE
   ); 
 
 CREATE TABLE IF NOT EXISTS injuries 
@@ -158,13 +158,13 @@ CREATE TABLE IF NOT EXISTS injuries
      injury_description   LONGTEXT NOT NULL, 
      injury_date          DATE NOT NULL, 
      PRIMARY KEY (injury_id),
-     FOREIGN KEY (DNI) REFERENCES sportman(dni) 
+     FOREIGN KEY (DNI) REFERENCES sportman(dni) ON DELETE CASCADE
   ); 
 CREATE TABLE IF NOT EXISTS injury_recovery
 (
 	 injury_id 				int NOT NULL,
 	 injury_recovery_date 	DATE NOT NULL, 
-	 FOREIGN KEY (injury_id) REFERENCES injuries(injury_id) 
+	 FOREIGN KEY (injury_id) REFERENCES injuries(injury_id)  ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS staff_works_game 
   ( 
@@ -173,11 +173,11 @@ CREATE TABLE IF NOT EXISTS staff_works_game
      date_match    DATE NOT NULL, 
      id_local_team INT NOT NULL, 
      id_guest_team INT NOT NULL, 
-     FOREIGN KEY (dni) REFERENCES staff (dni), 
-     FOREIGN KEY (id_tournament) REFERENCES tournament (id_tournament), 
-     FOREIGN KEY (date_match) REFERENCES game (date_match), 
-     FOREIGN KEY (id_local_team) REFERENCES team (team_code), 
-     FOREIGN KEY (id_guest_team) REFERENCES team (team_code) 
+     FOREIGN KEY (dni) REFERENCES staff (dni) ON DELETE CASCADE, 
+     FOREIGN KEY (id_tournament) REFERENCES tournament (id_tournament) ON DELETE CASCADE, 
+     FOREIGN KEY (date_match) REFERENCES game (date_match) ON DELETE CASCADE, 
+     FOREIGN KEY (id_local_team) REFERENCES team (team_code) ON DELETE CASCADE, 
+     FOREIGN KEY (id_guest_team) REFERENCES team (team_code) ON DELETE CASCADE 
   ); 
 
 CREATE TABLE IF NOT EXISTS staff_works_for_team 
@@ -187,8 +187,8 @@ CREATE TABLE IF NOT EXISTS staff_works_for_team
      contract_date   DATE NOT NULL, 
      contract_expiry DATE NOT NULL, 
      salary          BIGINT NOT NULL, 
-     FOREIGN KEY (dni) REFERENCES staff(dni), 
-     FOREIGN KEY (team_code) REFERENCES team(team_code) 
+     FOREIGN KEY (dni) REFERENCES staff(dni) ON DELETE CASCADE, 
+     FOREIGN KEY (team_code) REFERENCES team(team_code)  ON DELETE CASCADE
   ); 
 
 CREATE TABLE IF NOT EXISTS sportman_works_for_team 
@@ -198,6 +198,6 @@ CREATE TABLE IF NOT EXISTS sportman_works_for_team
      contract_date   DATE NOT NULL, 
      contract_expiry DATE NOT NULL, 
      salary          BIGINT NOT NULL, 
-     FOREIGN KEY (dni) REFERENCES sportman(dni), 
-     FOREIGN KEY (team_code) REFERENCES team(team_code) 
+     FOREIGN KEY (dni) REFERENCES sportman(dni) ON DELETE CASCADE, 
+     FOREIGN KEY (team_code) REFERENCES team(team_code)  ON DELETE CASCADE
   ); 

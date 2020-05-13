@@ -18,16 +18,14 @@ call MaxPuntuation(1);
 
 /*Remove team-sportsman -- Pau*/
 DELIMITER //
-
 CREATE PROCEDURE RemoveSportman(DNI varchar(9))
 BEGIN
-declare _DNI varchar(254);
+declare _DNI varchar(9);
 set _DNI   = DNI;
 
 delete from sportman where dni = _DNI ;
 
-END
-
+END//
 DELIMITER ;
 
 DELIMITER //
@@ -35,12 +33,12 @@ DELIMITER //
 CREATE PROCEDURE RemoveTeam(team_code int)
 BEGIN
 declare _team_code int;
-set _team_code   = DNI;
+set _team_code   = team_code;
 
-delete from team where team_code = _DNI ;
+delete from team where team_code = _team_code ;
 
-END$$
+END//
 
-DELIMITER ;+
+DELIMITER ;
 
 /*add procedure -> ???? -> profit*/
