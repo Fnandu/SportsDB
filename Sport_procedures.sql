@@ -11,7 +11,20 @@ set NameSport = Sport;
 Select max(score) from sportman where id_discipline = NameSport;
 END //
 DELIMITER ;
+
 /*Update team data-sportsman data -- Pablo*/
+DELIMITER //
+
+CREATE PROCEDURE UpdateTeam(IN id_team_code INT,IN id_team_name varchar(50))
+BEGIN
+	UPDATE team SET team_name = id_team_name where team_code = id_team_code;
+END //
+
+DELIMITER ;
+
+call UpdateTeam(1, 'Betis_FC');
+select* from team;
+drop procedure if exists UpdateTeam;
 
 /*Remove team-sportsman -- Pau*/
 DELIMITER //
