@@ -3,7 +3,9 @@ DELIMITER //
 CREATE TRIGGER update_score AFTER INSERT
 ON player_plays_game FOR EACH ROW
 BEGIN
-	UPDATE sportman SET sportman.score = sportman.score + score WHERE sportman.dni = dni;
+	UPDATE sportman , player_plays_game
+    SET sportman.score = (sportman.score + player_plays_game.score)
+	where  sportman.dni = player_plays_game.dni;
 END //
 
 DELIMITER ;
