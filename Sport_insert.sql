@@ -2,6 +2,7 @@ use sportdb;
 /*Create Inserts for all the new elements, such as games, fans and tournaments*/
 /*Person --> DNI, First Name, Last Name, Birth date, Gender, Country*/
 /*Personas en staff*/
+select * from game;
 INSERT INTO Person (
   dni, first_name, last_name, birth_date, gender, country
 ) 
@@ -629,7 +630,7 @@ INSERT INTO Game(
    )
 VALUES 
   (
-    "2017-12-12", 2, 1, 1, 3, "Winner", 2, 0, "Loser"
+    "2021-12-12", 2, 1, 1, 3, "Winner", 2, 0, "Loser"
   );
 
 INSERT INTO Game( 
