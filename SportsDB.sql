@@ -95,6 +95,7 @@ CREATE TABLE IF NOT EXISTS sportman
      player_number INT DEFAULT 0 NOT NULL, 
      team_code     INT NOT NULL, 
      id_discipline INT NOT NULL, 
+	 score         INT NOT NULL, 
      FOREIGN KEY (dni) REFERENCES person (dni), 
      FOREIGN KEY (team_code) REFERENCES team (team_code), 
      FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline) 
