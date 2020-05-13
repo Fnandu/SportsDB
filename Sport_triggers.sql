@@ -21,6 +21,16 @@ END //
 
 delimiter ;
 
+delimiter //
+CREATE TRIGGER Remove_Number_Players AFTER DELETE
+ON sportman FOR EACH ROW
+BEGIN
+	UPDATE team,sportman SET number_players = number_players - 1 
+    WHERE sportman.team_code = team.team_code;
+END //
+
+delimiter ;
+
 
 delimiter //
 
