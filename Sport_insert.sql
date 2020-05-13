@@ -2,7 +2,6 @@ use sportdb;
 /*Create Inserts for all the new elements, such as games, fans and tournaments*/
 /*Person --> DNI, First Name, Last Name, Birth date, Gender, Country*/
 /*Personas en staff*/
-select * from game;
 INSERT INTO Person (
   dni, first_name, last_name, birth_date, gender, country
 ) 

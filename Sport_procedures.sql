@@ -429,20 +429,17 @@ Select max(score) from sportman where id_discipline = NameSport;
 END //
 DELIMITER ;
 
-drop procedure NextGame;
 DELIMITER //
 
 CREATE PROCEDURE NextGame(Team int)
 BEGIN
 declare ID_Team int;
 set ID_Team = Team;
-/*
-SELECT date_match from game where id_local_team = ID_Team or id_guest_team = ID_Team in (Select date_match from game where date_match > CURDATE()) order by date_match limit 1;*/
-Select date_match from game where curdate() < (Select date_match from game where  id_local_team = ID_Team or id_guest_team = ID_Team) order by date_match limit 1;
+
+Select date_match from (SELECT * from game where id_local_team = ID_Team or id_guest_team = ID_Team) as team where date_match > curdate() order by date_match limit 1;
 END //
 
 Delimiter ;
-call NextGame(1);
 
 /*Update team data-sportsman data -- Pablo*/
 DELIMITER //
