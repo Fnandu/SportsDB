@@ -395,14 +395,14 @@ insert into Team(
 ) 
 values 
   (
-    'Betis_CF', 3, 1, 18,  '43511241J'
+    'Betis_CF', 3, 1, 0,  '43511241J'
   ); 
   insert into Team(
   Team_name, club_code, id_discipline, number_players, trainer_DNI
 ) 
 values 
   (
-    'FC_Barcelona', 1, 1, 24,  '49865742P'
+    'FC_Barcelona', 1, 1, 0,  '49865742P'
   );
   
   insert into Team(
@@ -410,14 +410,14 @@ values
 ) 
 values 
   (
-    'Seleccion_Portuguesa de petanca', 4, 4, 1,  '99974031T'
+    'Seleccion_Portuguesa de petanca', 4, 4, 0,  '99974031T'
   );
     insert into Team(
   Team_name, club_code, id_discipline, number_players, trainer_DNI
 ) 
 values 
   (
-    'Seleccion_Española de petanca', 5, 4, 1,  '49865742P'
+    'Seleccion_Española de petanca', 5, 4, 0,  '49865742P'
   );
   
   insert into Team(
@@ -425,7 +425,7 @@ values
 ) 
 values 
   (
-    'Barcelona', 1, 2, 11,  '29063878C'
+    'Barcelona', 1, 2, 0,  '29063878C'
   );
   
     insert into Team(
@@ -433,7 +433,7 @@ values
 ) 
 values 
   (
-    'Madrid', 2,2, 14,  '46325698K'
+    'Madrid', 2,2, 0,  '46325698K'
   );  
   
   insert into Team(
@@ -441,14 +441,14 @@ values
 ) 
 values 
   (
-    'Federacion Española de Tennis', 5,3, 1,  '94997345P'
+    'Federacion Española de Tennis', 5,3, 0,  '94997345P'
   );
   insert into Team(
   Team_name, club_code, id_discipline, number_players, trainer_DNI
 ) 
 values 
   (
-    'Federacion Francesa de Tennis', 6,3, 1,  '79564862I'
+    'Federacion Francesa de Tennis', 6,3, 0,  '79564862I'
   ); 
   
 /* Sportman ---> dni,player_number,score,team_code */
