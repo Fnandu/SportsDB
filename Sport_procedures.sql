@@ -475,3 +475,16 @@ END//
 DELIMITER ;
 
 /*add procedure -> ???? -> profit*/
+
+DELIMITER //
+Create procedure AddSport(NameSport varchar(20))
+BEGIN
+declare Name_Sport varchar(20);
+set Name_Sport = NameSport;
+insert into Discipline (
+  name_discipline
+  ) values (
+   Name_Sport
+  );
+  END//
+  DELIMITER ;
