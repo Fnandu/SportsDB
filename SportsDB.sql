@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS sportman
      team_code     INT NOT NULL, 
      id_discipline INT NOT NULL, 
 	 score         INT DEFAULT 0, 
+	CONSTRAINT fk_sportman_person_id
      FOREIGN KEY (dni) REFERENCES person (dni) ON DELETE CASCADE, 
      FOREIGN KEY (team_code) REFERENCES team (team_code) ON DELETE CASCADE, 
      FOREIGN KEY (id_discipline) REFERENCES discipline (id_discipline)  ON DELETE CASCADE
